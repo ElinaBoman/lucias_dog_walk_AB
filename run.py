@@ -38,6 +38,7 @@ def validate_data(values):
     print(values)
 
     try: 
+        [int(value) for value in values]
         if len(values) != 4:
             raise ValueError(
         f'Please enter 4 values, you provided {len(values)}'
