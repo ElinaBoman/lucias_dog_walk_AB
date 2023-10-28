@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+from pprint import pprint
 
 
 SCOPE = [
@@ -14,6 +15,8 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Lucias_dog_walk_AB')
 
 #data ***
+
+
 def get_number_of_walks():
     """
     Get number of walks input from the user
@@ -22,6 +25,7 @@ def get_number_of_walks():
         print('Please enter number of walks for each dog')
         print('Data should be separated by commas')
         print('Each number represents total walks for one dog in a day')
+        print('Enter walks in following order: Lou, Bently, Spookie, Baltzar')
         print('Example: 1, 2, 3, 4\n')
 
         data_str = input('Enter number of walks here: ')
@@ -54,6 +58,7 @@ def validate_data(values):
 
     return True
 
+
 def update_walks_worksheet(data):
     """
     Turns data string into integers and updates walks worksheet.
@@ -63,9 +68,25 @@ def update_walks_worksheet(data):
     walks_worksheet.append_row(data)
     print('Walks worksheet updated successfully.\n')
 
+def calculate_revenue_data(walks_row):
+    """
+    Calculates earnings for each dog and day
+    """
+    print('Calculating revenue...')
+    price = SHEET.worksheet('price').get_all_values()
+    price_row = price[-1]
+    print(price_row)
 
 
-data = get_number_of_walks()
-walks_data = [int(num) for num in data]
-update_walks_worksheet(walks_data)
 
+def main():
+    """
+    Run all program function
+        """
+    data = get_number_of_walks()
+    walks_data = [int(num) for num in data]
+    update_walks_worksheet(walks_data)
+    calculate_revenue_data(walks_data)
+
+print('Welcome to Lucias dog walk AB!')
+main()
