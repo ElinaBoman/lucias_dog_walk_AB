@@ -13,23 +13,28 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Lucias_dog_walk_AB')
 
-
+#data ***
 def get_number_of_walks():
     """
     Get number of walks input from the user
     """
-    print('Please enter number of walks for each dog')
-    print('Data should be separated by commas')
-    print('Each number represents total walks for one dog in a day')
-    print('Example: 1, 2, 3, 4\n')
+    while True:
+        print('Please enter number of walks for each dog')
+        print('Data should be separated by commas')
+        print('Each number represents total walks for one dog in a day')
+        print('Example: 1, 2, 3, 4\n')
 
-    data_str = input('Enter number of walks here: ')
-    
-    #This splits the data by the (,) to make it into a list.
-    #The list will be added to the worksheet.
-    walks_data = data_str.split(',')
-    validate_data(walks_data)
-    
+        data_str = input('Enter number of walks here: ')
+        
+        #This splits the data by the (,) to make it into a list.*****
+        #The list will be added to the worksheet.****
+        walks_data = data_str.split(',')
+        
+        if validate_data(walks_data):
+            print('Data is valid!')
+            break
+
+    return walks_data
 
 def validate_data(values):
     """
@@ -45,8 +50,22 @@ def validate_data(values):
         )
     except ValueError as e:
         print(f'Invalid data: {e}, please try again.\n')
+        return False
+
+    return True
+
+def update_walks_worksheet(data):
+    """
+    Turns data string into integers and updates walks worksheet.
+    """
+    print('Updating walks worksheet...')
+    walks_worksheet = SHEET.worksheet('walks')
+    walks_worksheet.append_row(data)
+    print('Walks worksheet updated successfully.\n')
 
 
-#print('Welcome to Lucias dog walk!')
-get_number_of_walks()
+
+data = get_number_of_walks()
+walks_data = [int(num) for num in data]
+update_walks_worksheet(walks_data)
 
