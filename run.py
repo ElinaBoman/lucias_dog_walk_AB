@@ -21,10 +21,31 @@ def get_number_of_walks():
     print('Please enter number of walks for each dog')
     print('Data should be separated by commas')
     print('Each number represents total walks for one dog in a day')
-    print('Example: 1, 2, 3, 4')
+    print('Example: 1, 2, 3, 4\n')
 
     data_str = input('Enter number of walks here: ')
-    print(f'Number of walks provides is {data_str}')
+    
+    #This splits the data by the (,) to make it into a list.
+    #The list will be added to the worksheet.
+    walks_data = data_str.split(',')
+    validate_data(walks_data)
+    
+
+def validate_data(values):
+    """
+    Validates the numbers inserted by user
+    """
+    print(values)
+
+    try: 
+        if len(values) != 4:
+            raise ValueError(
+        f'Please enter 4 values, you provided {len(values)}'
+        )
+    except ValueError as e:
+        print(f'Invalid data: {e}, please try again.\n')
 
 
+#print('Welcome to Lucias dog walk!')
 get_number_of_walks()
+
