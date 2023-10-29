@@ -14,8 +14,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Lucias_dog_walk_AB')
 
-#data ***
-
 
 def get_number_of_walks():
     """
@@ -68,6 +66,7 @@ def update_walks_worksheet(data):
     walks_worksheet.append_row(data)
     print('Walks worksheet updated successfully.\n')
 
+
 def calculate_revenue_data(walks_row):
     """
     Calculates earnings for each dog and day
@@ -97,9 +96,35 @@ def update_price_data(price_data):
 
     return price_data
 
-#def calculate_price_for_one_dog():
-    #price_worksheet = SHEET.worksheet('price')
 
+def calculate_price_for_one_dog():
+    """
+    Calculates total price for one dog and then clears price column
+    """
+    price = SHEET.worksheet('price')
+    
+    columns = []
+    for ind in range(1, 5):
+        column = price.col_values(ind)
+        columns.append(column)
+   return columns
+    #print('Which dog would you like to calculate?')
+    #dog_name = input('Enter name of dog here: ')
+
+
+    #This should be to be able to choose wich dog to calculate:
+    #valid_dog_names = ['Lou', 'Bently', 'Spookie', 'Baltzar']
+   
+   # while True:
+        #if dog_name not in valid_dog_names:
+            #print('Name is invalid')
+            #input('Enter dog name here:\n')
+            #return True
+        
+        #else:
+            #print('Name is valid!')
+            #return False
+            #break
 
 
 def main():
@@ -111,8 +136,11 @@ def main():
     update_walks_worksheet(walks_data)
     calculate_revenue_data(walks_data)
     new_prices_data = update_price_data(price_data)
+    calculate_price_for_one_dog()
+    
 
     
 
 print('Welcome to Lucias dog walk AB!')
-main()
+#main()
+price_columns = calculate_price_for_one_dog()

@@ -1,0 +1,19 @@
+    while True:
+        dog = input('Which dog would you like to calculate? Enter name of dog here: ')
+        if validates_name_of_dog(dog):
+            # Find the index of the selected dog in the valid_dog_names list
+            dog_index = valid_dog_names.index(dog)
+            
+            # Get the prices for the selected dog from the price worksheet
+            prices = price_worksheet.col_values(dog_index + 1)
+            
+            # Calculate the total price for the selected dog
+            total_price = sum(map(int, prices))
+            
+            # Print the result
+            print(f'Total price for {dog}: ${total_price}')
+            
+            # Optionally clear the prices for the selected dog
+            # price_worksheet.update([total_price], value_input_option='RAW')
+            
+            break
