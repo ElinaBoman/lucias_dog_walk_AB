@@ -127,9 +127,9 @@ def clear_terminal():
     
 
 def generateRGB():
-    red = random.randint(0,256)
-    green = random.randint(0,256)
-    blue = random.randint(0,256)
+    red = random.randint(100,256)
+    green = random.randint(100,256)
+    blue = random.randint(100,256)
     return red, green, blue
 
 
@@ -187,10 +187,10 @@ Figlet text
 
 print(pyfiglet.figlet_format("Dog Walk AB",font='big',width=110))
 
-print('Welcome to Lucias dog walk AB!')
+
 red, green, blue = generateRGB()
 color = generateColor(red, green, blue)
 print(color)
-
+print('Welcome to Lucias dog walk AB!\n')
 main()
 
