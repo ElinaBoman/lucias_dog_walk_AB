@@ -2,6 +2,8 @@ import gspread
 from google.oauth2.service_account import Credentials
 from pprint import pprint
 import pyfiglet
+import os
+import time
 
 
 SCOPE = [
@@ -113,6 +115,11 @@ def calculate_price_for_one_dog():
     return columns
 
 
+def clear_terminal():
+    time.sleep(5)
+    os.system('clear')
+    
+
 #def calculate_price_worksheet():
 
 
@@ -151,9 +158,10 @@ def main():
     update_walks_worksheet(walks_data)
     calculate_revenue_data(walks_data)
     new_prices_data = update_price_data(price_data)
+    clear_terminal()
    # price_for_dog = calculate_total_price()
 
-print(pyfiglet.figlet_format("Dog Walk AB",justify="center"))
+print(pyfiglet.figlet_format("Dog Walk AB",font='big',width=110))
 print('Welcome to Lucias dog walk AB!')
 main()
 
