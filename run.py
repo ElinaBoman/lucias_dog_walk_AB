@@ -1,6 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 from pprint import pprint
+import pyfiglet
 
 
 SCOPE = [
@@ -38,18 +39,19 @@ def get_number_of_walks():
 
     return walks_data
 
+
 def validate_data(values):
     """
     Validates the numbers inserted by user
     """
     print(values)
 
-    try: 
+    try:
         [int(value) for value in values]
         if len(values) != 4:
             raise ValueError(
-        f'Please enter 4 values, you provided {len(values)}'
-        )
+            f'Please enter 4 values, you provided{len(values)}'
+            )
     except ValueError as e:
         print(f'Invalid data: {e}, please try again.\n')
         return False
@@ -75,7 +77,7 @@ def calculate_revenue_data(walks_row):
     print('Calculating revenue...')
     price = SHEET.worksheet('price').get_all_values()
     price_row = price[-1]
-    
+ 
     global price_data
     price_data = []
     for walks, price in zip(walks_row, price_row):
@@ -107,7 +109,20 @@ def calculate_price_for_one_dog():
     for ind in range(1, 5):
         column = price.col_values(ind)
         columns.append(column)
-   return columns
+    print(columns)
+    return columns
+
+
+#def calculate_price_worksheet():
+
+
+#def calculate_total_price():
+   # column_name_input = input('Enter the name of the dog to calculate price')
+    
+   
+    
+    
+    
     #print('Which dog would you like to calculate?')
     #dog_name = input('Enter name of dog here: ')
 
@@ -136,11 +151,9 @@ def main():
     update_walks_worksheet(walks_data)
     calculate_revenue_data(walks_data)
     new_prices_data = update_price_data(price_data)
-    calculate_price_for_one_dog()
-    
+   # price_for_dog = calculate_total_price()
 
-    
-
+print(pyfiglet.figlet_format("Dog Walk AB",justify="center"))
 print('Welcome to Lucias dog walk AB!')
-#main()
-price_columns = calculate_price_for_one_dog()
+main()
+

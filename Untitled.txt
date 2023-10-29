@@ -1,19 +1,23 @@
-    while True:
-        dog = input('Which dog would you like to calculate? Enter name of dog here: ')
-        if validates_name_of_dog(dog):
-            # Find the index of the selected dog in the valid_dog_names list
-            dog_index = valid_dog_names.index(dog)
-            
-            # Get the prices for the selected dog from the price worksheet
-            prices = price_worksheet.col_values(dog_index + 1)
-            
-            # Calculate the total price for the selected dog
-            total_price = sum(map(int, prices))
-            
-            # Print the result
-            print(f'Total price for {dog}: ${total_price}')
-            
-            # Optionally clear the prices for the selected dog
-            # price_worksheet.update([total_price], value_input_option='RAW')
-            
-            break
+def calculate_sum_of_column():
+    """
+    Calculates the sum of all numbers in a specified column.
+    """
+    price_worksheet = SHEET.worksheet('price')
+
+    # Ask the user for the column name they want to calculate
+    column_name = input('Enter the column name to calculate (e.g., Mon, Tue, Wed, Thu, Fri): ')
+
+    # Ensure that the column name is valid (e.g., it exists in the worksheet)
+    if column_name in price_worksheet.row_values(1):
+        # Find the index of the column header
+        column_index = price_worksheet.row_values(1).index(column_name) + 1  # Add 1 because index is 0-based
+
+        # Get the values in the specified column (excluding the header)
+        column_values = price_worksheet.col_values(column_index)[1:]  # Exclude the header
+
+        # Convert the values to integers and calculate the sum
+        column_sum = sum(map(int, column_values))
+
+        print(f'The sum of values in column {column_name}: {column_sum}')
+    else:
+        print(f'Column name "{column_name}" is invalid or does not exist.')
