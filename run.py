@@ -75,8 +75,19 @@ def calculate_revenue_data(walks_row):
     print('Calculating revenue...')
     price = SHEET.worksheet('price').get_all_values()
     price_row = price[-1]
-    print(price_row)
+    
+    global price_data
+    price_data = []
+    for walks, price in zip(walks_row, price_row):
+        price_for_walk = walks * int(price)
+        price_data.append(price_for_walk)
+    print(price_data)
 
+def update_price_data(price_data):
+    print('Updating price worksheet...')
+    price_worksheet = SHEET.worksheet('price')
+    price_worksheet.append_row(price_data)
+    print('Price worksheet updated successfully!')
 
 
 def main():
@@ -87,6 +98,9 @@ def main():
     walks_data = [int(num) for num in data]
     update_walks_worksheet(walks_data)
     calculate_revenue_data(walks_data)
+    update_price_data(price_data)
+
+    
 
 print('Welcome to Lucias dog walk AB!')
 main()
