@@ -71,6 +71,7 @@ def update_walks_worksheet(data):
 def calculate_revenue_data(walks_row):
     """
     Calculates earnings for each dog and day
+    Every walk is multiplyed with the price per walk (5$)
     """
     print('Calculating revenue...')
     price = SHEET.worksheet('price').get_all_values()
@@ -79,15 +80,26 @@ def calculate_revenue_data(walks_row):
     global price_data
     price_data = []
     for walks, price in zip(walks_row, price_row):
-        price_for_walk = walks * int(price)
+        price_for_walk = walks * 5
         price_data.append(price_for_walk)
     print(price_data)
 
+
 def update_price_data(price_data):
+    """
+    Updates price worksheet with calculated prices.
+    The returned value is the price for each dog and day.
+    """
     print('Updating price worksheet...')
     price_worksheet = SHEET.worksheet('price')
     price_worksheet.append_row(price_data)
     print('Price worksheet updated successfully!')
+
+    return price_data
+
+#def calculate_price_for_one_dog():
+    #price_worksheet = SHEET.worksheet('price')
+
 
 
 def main():
@@ -98,7 +110,7 @@ def main():
     walks_data = [int(num) for num in data]
     update_walks_worksheet(walks_data)
     calculate_revenue_data(walks_data)
-    update_price_data(price_data)
+    new_prices_data = update_price_data(price_data)
 
     
 
