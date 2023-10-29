@@ -4,6 +4,8 @@ from pprint import pprint
 import pyfiglet
 import os
 import time
+import random 
+from sty import fg
 
 
 SCOPE = [
@@ -116,9 +118,23 @@ def calculate_price_for_one_dog():
 
 
 def clear_terminal():
+    """
+    Clear terminal when functions have updated walks and price worksheet.
+    Code was designed togheter with ChatGPT.
+    """
     time.sleep(5)
     os.system('clear')
     
+
+def generateRGB():
+    red = random.randint(0,256)
+    green = random.randint(0,256)
+    blue = random.randint(0,256)
+    return red, green, blue
+
+
+def generateColor(red, green, blue):
+    return fg(red, green, blue)
 
 #def calculate_price_worksheet():
 
@@ -152,7 +168,9 @@ def clear_terminal():
 def main():
     """
     Run all program function
-        """
+    """
+    red, green, blue = generateRGB()
+    generateColor(red, green, blue)
     data = get_number_of_walks()
     walks_data = [int(num) for num in data]
     update_walks_worksheet(walks_data)
@@ -161,7 +179,18 @@ def main():
     clear_terminal()
    # price_for_dog = calculate_total_price()
 
+
+
+"""
+Figlet text
+"""
+
 print(pyfiglet.figlet_format("Dog Walk AB",font='big',width=110))
+
 print('Welcome to Lucias dog walk AB!')
+red, green, blue = generateRGB()
+color = generateColor(red, green, blue)
+print(color)
+
 main()
 
