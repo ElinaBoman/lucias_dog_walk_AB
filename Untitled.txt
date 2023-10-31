@@ -77,3 +77,31 @@ Traceback (most recent call last):
   File "run.py", line 125, in <listcomp>
     column_data = [int(value) for value in column_data]
 ValueError: invalid literal for int() with base 10: 'Lou
+
+
+   """
+    columns = []
+    for ind in range(1, 5):
+        column = price.col_values(ind)
+        columns.append(column[1:])
+    
+    return columns
+    """
+
+    """
+walks_worksheet = SHEET.worksheet('walks')
+val = walks_worksheet.acell('B1').value
+print(val)
+"""
+
+
+while True:
+    print('Would you like to calculate total price? Else enter exit.')
+    str_name = input('Dog name: ')
+    str_name = str_name.capitalize()
+
+    if str_name == 'Exit':  # Check for 'Exit' in title case
+        break
+    else:
+        # Your code to calculate total price for dog names
+
