@@ -31,10 +31,7 @@ def get_number_of_walks():
         print('Enter walks in following order: Lou, Bently, Spookie, Baltzar')
         print('Example: 1, 2, 3, 4\n')
 
-        data_str = input('Enter number of walks here: ')
-        
-        #This splits the data by the (,) to make it into a list.*****
-        #The list will be added to the worksheet.****
+        data_str = input('Enter number of walks here: \n')
         walks_data = data_str.split(',')
         
         if validate_data(walks_data):
@@ -49,7 +46,6 @@ def validate_data(values):
     Validates the numbers inserted by user
     """
     print(values)
-
     try:
         [int(value) for value in values]
         if len(values) != 4:
@@ -65,7 +61,7 @@ def validate_data(values):
 
 def update_walks_worksheet(data):
     """
-    Turns data string into integers and updates walks worksheet.
+    Updates walks worksheet.
     """
     print('Updating walks worksheet...')
     walks_worksheet = SHEET.worksheet('walks')
@@ -98,23 +94,37 @@ def update_price_data(price_data):
     print('Updating price worksheet...')
     price_worksheet = SHEET.worksheet('price')
     price_worksheet.append_row(price_data)
-    print('Price worksheet updated successfully!')
+    print('Price worksheet updated successfully!\n')
 
     return price_data
 
 
 def calculate_price_for_one_dog():
     """
-    Calculates total price for one dog and then clears price column
+    Calculates total price for one dog and then clears price column #NOT DONE
     """
     price = SHEET.worksheet('price')
-    
+   
     columns = []
     for ind in range(1, 5):
         column = price.col_values(ind)
-        columns.append(column)
-    print(columns)
+        columns.append(column[1:])
+    
     return columns
+
+
+def calculate_total_price(data):
+    """
+    Calculate columns data
+    """
+    print('Calculate price data...')
+    new_price_data = []
+
+    for column in data:
+        int_column = [int(num) for num in column]
+        total_price = sum(int_column)
+        new_price_data.append(total_price)
+    print(new_price_data)
 
 
 def clear_terminal():
@@ -127,42 +137,42 @@ def clear_terminal():
     
 
 def generateRGB():
-    red = random.randint(100,256)
-    green = random.randint(100,256)
-    blue = random.randint(100,256)
+    """
+    Generates color
+    """
+    red = random.randint(100, 256)
+    green = random.randint(100, 256)
+    blue = random.randint(100, 256)
     return red, green, blue
 
 
 def generateColor(red, green, blue):
+    """
+    Generates colord text in terminal
+    """
     return fg(red, green, blue)
 
-#def calculate_price_worksheet():
 
+def validate_dog_name():
+    """
+    Validates input from user to check if name is in register.
+    If name not in valid_dog_names user will get a print message to try again.
+    This will loop until the name is inside register.
+    """
+    valid_dog_names = ['Lou', 'Bently', 'Spookie', 'Baltzar']
 
-#def calculate_total_price():
-   # column_name_input = input('Enter the name of the dog to calculate price')
-    
-   
-    
-    
-    
-    #print('Which dog would you like to calculate?')
-    #dog_name = input('Enter name of dog here: ')
+    while True:
+        print('Please enter name of dog.\n')
+        dog_name = (input('Enter name of dog:\n'))
+        dog_name = dog_name.capitalize()
 
+        if dog_name not in valid_dog_names:
+            print('Name is invalid')
+            print(f'No dog named {dog_name}.')
+        else:
+            print('Name is valid!\n')
 
-    #This should be to be able to choose wich dog to calculate:
-    #valid_dog_names = ['Lou', 'Bently', 'Spookie', 'Baltzar']
-   
-   # while True:
-        #if dog_name not in valid_dog_names:
-            #print('Name is invalid')
-            #input('Enter dog name here:\n')
-            #return True
-        
-        #else:
-            #print('Name is valid!')
-            #return False
-            #break
+        return False
 
 
 def main():
@@ -175,22 +185,17 @@ def main():
     walks_data = [int(num) for num in data]
     update_walks_worksheet(walks_data)
     calculate_revenue_data(walks_data)
-    new_prices_data = update_price_data(price_data)
-    clear_terminal()
-   # price_for_dog = calculate_total_price()
-
-
+    validate_dog_name()
+    #clear_terminal()
+    price_columns = calculate_price_for_one_dog()
+    calculate_total_price(price_columns)
 
 """
 Figlet text
 """
-
 print(pyfiglet.figlet_format("Dog Walk AB",font='big',width=110))
-
-
+print('Welcome to Lucias dog walk AB!\n')
 red, green, blue = generateRGB()
 color = generateColor(red, green, blue)
 print(color)
-print('Welcome to Lucias dog walk AB!\n')
 main()
-
