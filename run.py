@@ -91,7 +91,7 @@ def update_price_data(price_data):
     Updates price worksheet with calculated prices.
     The returned value is the price for each dog and day.
     """
-    print('Updating price worksheet...')
+    print('Updating price worksheet...\n')
     price_worksheet = SHEET.worksheet('price')
     price_worksheet.append_row(price_data)
     print('Price worksheet updated successfully!\n')
@@ -99,9 +99,9 @@ def update_price_data(price_data):
     return price_data
 
 
-def calculate_price_for_one_dog():
+def calculate_price_for_one_dog(dog_name):
     """
-    Calculates total price for one dog and then clears price column #NOT DONE
+    Calculates total price for one dog
     """
     price = SHEET.worksheet('price')
    
@@ -159,20 +159,22 @@ def validate_dog_name():
     If name not in valid_dog_names user will get a print message to try again.
     This will loop until the name is inside register.
     """
-    valid_dog_names = ['Lou', 'Bently', 'Spookie', 'Baltzar']
-
+    price_worksheet = SHEET.worksheet('price').row_values(1)
+    
     while True:
+       
         print('Please enter name of dog.\n')
         dog_name = (input('Enter name of dog:\n'))
         dog_name = dog_name.capitalize()
-
-        if dog_name not in valid_dog_names:
+        
+        if dog_name not in price_worksheet:
             print('Name is invalid')
             print(f'No dog named {dog_name}.')
         else:
             print('Name is valid!\n')
 
         return False
+    return dog_name
 
 
 def main():
@@ -188,8 +190,8 @@ def main():
     update_price_data(price_data)
     validate_dog_name()
     #clear_terminal()
-    price_columns = calculate_price_for_one_dog()
-    calculate_total_price(price_columns)
+    #price_columns = calculate_price_for_one_dog()
+    #calculate_total_price(price_columns)
 
 """
 Figlet text
@@ -200,3 +202,10 @@ red, green, blue = generateRGB()
 color = generateColor(red, green, blue)
 print(color)
 main()
+"""
+walks_worksheet = SHEET.worksheet('walks')
+val = walks_worksheet.acell('B1').value
+print(val)
+"""
+
+    
