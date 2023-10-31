@@ -185,6 +185,7 @@ def main():
     walks_data = [int(num) for num in data]
     update_walks_worksheet(walks_data)
     calculate_revenue_data(walks_data)
+    update_price_data(price_data)
     validate_dog_name()
     #clear_terminal()
     price_columns = calculate_price_for_one_dog()
