@@ -99,18 +99,71 @@ def update_price_data(price_data):
     return price_data
 
 
+def validate_dog_name():
+    """
+    Validates input from user to check if name is in register.
+    If name not in valid_dog_names user will get a print message to try again.
+    This will loop until the name is inside register.
+    """
+    price_worksheet = SHEET.worksheet('price').row_values(1)
+    
+    while True:
+       
+        print('Please enter name of dog.\n')
+        dog_name = (input('Enter name of dog:\n'))
+        dog_name = dog_name.capitalize()
+        
+        if dog_name not in price_worksheet:
+            print('Name is invalid')
+            print(f'No dog named {dog_name}.')
+        else:
+            print('Name is valid!\n')
+            return False      
+    return (dog_name)
+
+
 def calculate_price_for_one_dog(dog_name):
     """
     Calculates total price for one dog
     """
     price = SHEET.worksheet('price')
-   
+    str_name = input('Dog name: ')
+    str_name = str_name.capitalize()
+    
+    if str_name == 'Lou':
+        values_list = price.col_values(1)
+        values_to_use = [int(num) for num in values_list[1:]]
+        total_value_lou = sum(values_to_use)
+        print(f'The total price for Lou is ${total_value_lou}')
+
+    elif str_name == 'Bently':
+        values_list = price.col_values(2)
+        values_to_use = [int(num) for num in values_list[1:]]
+        total_value_bently = sum(values_to_use)
+        print(f'The total price for Bently is ${total_value_bently}')
+
+    elif str_name == 'Spookie':
+        values_list = price.col_values(3)
+        values_to_use = [int(num) for num in values_list[1:]]
+        total_value_spookie = sum(values_to_use)
+        print(f'The total price for Spookie is ${total_value_spookie}')
+        
+    elif str_name == 'Baltzar':
+        values_list = price.col_values(4)
+        values_to_use = [int(num) for num in values_list[1:]]
+        total_value_baltzar = sum(values_to_use)
+        print(f'The total price for Baltzar is ${total_value_baltzar}')
+        
+    else:
+        print('Name not found.')
+    """
     columns = []
     for ind in range(1, 5):
         column = price.col_values(ind)
         columns.append(column[1:])
     
     return columns
+    """
 
 
 def calculate_total_price(data):
@@ -153,34 +206,11 @@ def generateColor(red, green, blue):
     return fg(red, green, blue)
 
 
-def validate_dog_name():
-    """
-    Validates input from user to check if name is in register.
-    If name not in valid_dog_names user will get a print message to try again.
-    This will loop until the name is inside register.
-    """
-    price_worksheet = SHEET.worksheet('price').row_values(1)
-    
-    while True:
-       
-        print('Please enter name of dog.\n')
-        dog_name = (input('Enter name of dog:\n'))
-        dog_name = dog_name.capitalize()
-        
-        if dog_name not in price_worksheet:
-            print('Name is invalid')
-            print(f'No dog named {dog_name}.')
-        else:
-            print('Name is valid!\n')
-
-        return False
-    return dog_name
-
-
 def main():
     """
     Run all program function
     """
+
     red, green, blue = generateRGB()
     generateColor(red, green, blue)
     data = get_number_of_walks()
@@ -188,9 +218,13 @@ def main():
     update_walks_worksheet(walks_data)
     calculate_revenue_data(walks_data)
     update_price_data(price_data)
-    validate_dog_name()
-    #clear_terminal()
-    #price_columns = calculate_price_for_one_dog()
+    dog_name = validate_dog_name()
+    calculate_price_for_one_dog(dog_name)
+
+
+    
+#clear_terminal()
+    
     #calculate_total_price(price_columns)
 
 """
@@ -202,10 +236,9 @@ red, green, blue = generateRGB()
 color = generateColor(red, green, blue)
 print(color)
 main()
+
 """
 walks_worksheet = SHEET.worksheet('walks')
 val = walks_worksheet.acell('B1').value
 print(val)
 """
-
-    
