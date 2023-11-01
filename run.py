@@ -1,6 +1,5 @@
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
 import pyfiglet
 import os
 import time
@@ -36,8 +35,9 @@ def get_number_of_walks():
         
         if validate_data(walks_data):
             print('Data is valid!')
+            # stored_walks_data = walks_data 
             break
-
+            
     return walks_data
 
 
@@ -69,6 +69,17 @@ def update_walks_worksheet(data):
     print('Walks worksheet updated successfully.\n')
 
 
+def update_price_data(price_data):
+    """
+    Updates price worksheet with calculated prices.
+    The returned value is the price for each dog and day.
+    """
+    print('Updating price worksheet...\n')
+    price_worksheet = SHEET.worksheet('price')
+    price_worksheet.append_row(price_data)
+    print('Price worksheet updated successfully!\n')
+
+
 def calculate_revenue_data(walks_row):
     """
     Calculates earnings for each dog and day
@@ -86,56 +97,23 @@ def calculate_revenue_data(walks_row):
     print(price_data)
 
 
-def update_price_data(price_data):
-    """
-    Updates price worksheet with calculated prices.
-    The returned value is the price for each dog and day.
-    """
-    print('Updating price worksheet...\n')
-    price_worksheet = SHEET.worksheet('price')
-    price_worksheet.append_row(price_data)
-    print('Price worksheet updated successfully!\n')
-
-    return price_data
-
-
-def validate_dog_name():
-    """
-    Validates input from user to check if name is in register.
-    If name not in valid_dog_names user will get a print message to try again.
-    This will loop until the name is inside register.
-    """
-    price_worksheet = SHEET.worksheet('price').row_values(1)
-    
-    while True:
-       
-        print('Please enter name of dog.\n')
-        dog_name = (input('Enter name of dog:\n'))
-        dog_name = dog_name.capitalize()
-        
-        if dog_name not in price_worksheet:
-            print('Name is invalid')
-            print(f'No dog named {dog_name}.')
-        else:
-            print('Name is valid!\n')
-            return False      
-    return (dog_name)
-
-
 def calculate_price_for_one_dog():
     """
     Calculates total price for one dog
     """
     price = SHEET.worksheet('price')
+    price_worksheet = SHEET.worksheet('price').row_values(1)
     while True:
-        print('Would you like to calculate the total price for one dog?')
+        print('Would you like to calculate the total price for a dog?')
         print('Else enter exit.')
         str_name = input('Name of dog: or Exit \n')
         str_name = str_name.capitalize()
-    
-        if str_name == 'Exit':
 
+        if str_name == 'Exit':
             break
+        elif str_name not in price_worksheet:
+            print(f'No dog named {str_name} in register.')
+            print('Please try again...')
 
         else:
             if str_name == 'Lou':
@@ -143,7 +121,7 @@ def calculate_price_for_one_dog():
                 values_to_use = [int(num) for num in values_list[1:]]
                 total_value_lou = sum(values_to_use)
                 print(f'The total price for Lou is ${total_value_lou}')
-
+            
             elif str_name == 'Bently':
                 values_list = price.col_values(2)
                 values_to_use = [int(num) for num in values_list[1:]]
@@ -217,13 +195,8 @@ def main():
     update_walks_worksheet(walks_data)
     calculate_revenue_data(walks_data)
     update_price_data(price_data)
-    #dog_name = validate_dog_name()
     calculate_price_for_one_dog()
-
-   
-#clear_terminal()
-#calculate_total_price(price_columns)
-
+    clear_terminal()
 """
 Figlet text
 """

@@ -105,3 +105,120 @@ while True:
     else:
         # Your code to calculate total price for dog names
 
+
+        def validate_dog_name():
+    """
+    Validates input from user to check if name is in register.
+    If name not in valid_dog_names user will get a print message to try again.
+    This will loop until the name is inside register.
+    """
+    price_worksheet = SHEET.worksheet('price').row_values(1)
+    
+    while True:
+       
+        print('Please enter name of dog.\n')
+        dog_name = (input('Enter name of dog:\n'))
+        dog_name = dog_name.capitalize()
+        
+        if dog_name not in price_worksheet:
+            print('Name is invalid')
+            print(f'No dog named {dog_name}.')
+        else:
+            print('Name is valid!\n')
+            return False      
+    return (dog_name)
+
+
+
+
+def calculate_price_for_one_dog():
+    """
+    Calculates total price for one dog
+    """
+    price = SHEET.worksheet('price')
+    price_worksheet = SHEET.worksheet('price').row_values(1)
+
+    while True:
+        print('Would you like to calculate the total price for a dog?')
+        print('Else enter exit.')
+        str_name = input('Name of dog: or Exit \n')
+        str_name = str_name.capitalize()
+
+        if str_name not in price_worksheet:
+            print('Name is invalid')
+            print(f'No dog named {str_name}.')
+        else:
+            print('Name is valid!\n')
+
+        while True:
+            if str_name == 'Exit':
+                 break
+
+            elif str_name == 'Lou':
+                values_list = price.col_values(1)
+                values_to_use = [int(num) for num in values_list[1:]]
+                total_value_lou = sum(values_to_use)
+                print(f'The total price for Lou is ${total_value_lou}')
+            
+            elif str_name == 'Bently':
+                values_list = price.col_values(2)
+                values_to_use = [int(num) for num in values_list[1:]]
+                total_value_bently = sum(values_to_use)
+                print(f'The total price for Bently is ${total_value_bently}')
+
+            elif str_name == 'Spookie':
+                values_list = price.col_values(3)
+                values_to_use = [int(num) for num in values_list[1:]]
+                total_value_spookie = sum(values_to_use)
+                print(f'The total price for Spookie is ${total_value_spookie}')
+                        
+            elif str_name == 'Baltzar':
+                values_list = price.col_values(4)
+                values_to_use = [int(num) for num in values_list[1:]]
+                total_value_baltzar = sum(values_to_use)
+                print(f'The total price for Baltzar is ${total_value_baltzar}')
+                        
+            else:
+                print('Name not found.')
+
+            return False      
+        return (str_name)
+
+
+    
+    def delete_column_except_heading(sheet_name, column_index):
+    # Open the specified worksheet by name
+    worksheet = SHEET.worksheet(sheet_name)
+
+    # Get the header row
+    header_row = worksheet.row_values(1)
+
+    # Delete the specified column
+    del header_row[column_index - 1]  # Adjust for 1-based index
+    worksheet.delete_rows(1)
+    worksheet.insert_rows(header_row, 1)
+
+# Usage example
+delete_column_except_heading('price', 2)  # Delete the 2nd colum
+
+ef delete_prices():
+    price = SHEET.worksheet('price')
+    walks = SHEET.worksheet('walks')
+
+    de
+
+    def option():
+    while True:
+        print('What would you like to do today?')
+        action = input('"Enter walks" or "calculate total price?"')
+        if action == 'Enter walks':
+            walks_data = get_number_of_walks()
+            print(walks_data)
+            update_walks_worksheet(walks_data)
+            price_data = calculate_revenue_data()
+            update_price_data(price_data)
+            print(price_data)
+        elif action == 'Calculate total price':
+            calculate_price_for_one_dog()
+        elif action == 'Exit':
+            exit()
