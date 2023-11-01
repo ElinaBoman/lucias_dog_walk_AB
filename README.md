@@ -20,16 +20,16 @@ To use the program, simply follow the instructions provided. Enter number of wal
 - Welcome text
 The user is welcomed with a Pyfiglet styled text. This text displays the Dog Walk AB logo. This gives the otherwise bland terminal a fun decor.
 The Welcome text provides the user with information on how to enter number of walks. If the user enters invalid information there will be a error message. Then the user will be asked to insert new values until the values are correct.
-![Welcome text](docs/dog_walk_figlet.png)
-![Welcome text](docs/enter_number.png)
+![Welcome text](docs/dog_walk-figlet.png)
+![Welcome text](docs/enter-number.png)
 
 - Updating worksheet
 When user has enterd number of walks the information will be stored inside a worksheet called walks. By default the user will be informed of the daily revanue. The daily revanue will be stored in worksheet called prices. From this worksheet the user will be abel to extrect information of the total price for each dog.
 ![Update worksheet](docs/)
-![Update worksheet](docs/calculate_revenue.png)
+![Update worksheet](docs/calculate-revenue.png)
 - Exit program
 When the user is ready to leave the program, he/she enters exit in the input. The program will then clear the terminal automatically after 5 second.
-![Exit program](docs/calculate_exit.png)
+![Exit program](docs/calculate-exit.png)
 - Color terminal
 To make the program user friendly there is a color function that will randomly change the color of the text in the terminal. This is to make the program funnier to use.
 ### Future Features
