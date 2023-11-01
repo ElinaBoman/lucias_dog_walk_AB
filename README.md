@@ -5,7 +5,7 @@ Dog Walk AB is a personalized program for dog walking companies. This program wi
 
 Link to deployed project:
 
-![Example Image](images/example.png)
+![Am I responsive](docs/amiresponsive.png)
 
 ## How to use the 
 To use the program, simply follow the instructions provided. Enter number of walks in presented order. Then if the user would like to see the total cost for a dog, enter name of the dog and the total price will be fetched! If the user would like to leave the  it is really simple. Just write exit and the program will finish and the reminal will clear it self.
