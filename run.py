@@ -3,7 +3,7 @@ from google.oauth2.service_account import Credentials
 import pyfiglet
 import os
 import time
-import random 
+import random
 from sty import fg
 
 
@@ -32,12 +32,10 @@ def get_number_of_walks():
 
         data_str = input('Enter number of walks here: \n')
         walks_data = data_str.split(',')
-        
+
         if validate_data(walks_data):
             print('Data is valid!')
-            # stored_walks_data = walks_data 
             break
-            
     return walks_data
 
 
@@ -49,9 +47,7 @@ def validate_data(values):
     try:
         [int(value) for value in values]
         if len(values) != 4:
-            raise ValueError(
-            f'Please enter 4 values, you provided{len(values)}'
-            )
+            raise ValueError(f'Enter 4 values, you provided{len(values)}')
     except ValueError as e:
         print(f'Invalid data: {e}, please try again.\n')
         return False
@@ -89,7 +85,7 @@ def calculate_revenue_data(walks_row):
     price = SHEET.worksheet('price').get_all_values()
     price_row = price[-1]
     global price_data
-    
+
     price_data = []
     for walks, price in zip(walks_row, price_row):
         price_for_walk = walks * 5
@@ -121,7 +117,7 @@ def calculate_price_for_one_dog():
                 values_to_use = [int(num) for num in values_list[1:]]
                 total_value_lou = sum(values_to_use)
                 print(f'The total price for Lou is ${total_value_lou}')
-            
+
             elif str_name == 'Bently':
                 values_list = price.col_values(2)
                 values_to_use = [int(num) for num in values_list[1:]]
@@ -133,13 +129,11 @@ def calculate_price_for_one_dog():
                 values_to_use = [int(num) for num in values_list[1:]]
                 total_value_spookie = sum(values_to_use)
                 print(f'The total price for Spookie is ${total_value_spookie}')
-                    
             elif str_name == 'Baltzar':
                 values_list = price.col_values(4)
                 values_to_use = [int(num) for num in values_list[1:]]
                 total_value_baltzar = sum(values_to_use)
                 print(f'The total price for Baltzar is ${total_value_baltzar}')
-                    
             else:
                 print('Name not found.')
 
@@ -197,11 +191,14 @@ def main():
     update_price_data(price_data)
     calculate_price_for_one_dog()
     clear_terminal()
+
+
+print(pyfiglet.figlet_format("Dog Walk AB", font='big', width=110))
 """
 Figlet text
 """
-print(pyfiglet.figlet_format("Dog Walk AB",font='big',width=110))
-print('Welcome to Lucias dog walk AB!\n')
+print('Welcome to Dog Walk AB!\n')
+print("Let's enter todays walks and calculate the total price!")
 red, green, blue = generateRGB()
 color = generateColor(red, green, blue)
 print(color)
