@@ -119,28 +119,53 @@ def calculate_price_for_one_dog():
                 values_to_use = [int(num) for num in values_list[1:]]
                 total_value_lou = sum(values_to_use)
                 print(f'The total price for Lou is ${total_value_lou}')
+                
+                print('If the total price for Lou has been paid,')
+                print('you can clear total price for Lou.')
+                print('Remember if price is cleard information is lost')
+                clear_column = input('Clear Lou? Enter "Yes":\n')
+                if clear_column.capitalize() == 'Yes':
+                    price.batch_clear(['A2:A100'])
+                    print('Lou has been cleared!')
 
             elif str_name == 'Bently':
                 values_list = price.col_values(2)
                 values_to_use = [int(num) for num in values_list[1:]]
                 total_value_bently = sum(values_to_use)
                 print(f'The total price for Bently is ${total_value_bently}')
+                print('If the total price for Bently has been paid,')
+                print('you can clear total price for Bently.')
+                print('Remember if price is cleard information is lost')
+                clear_column = input('Clear Bently? Enter "Yes":\n')
+                if clear_column.capitalize() == 'Yes':
+                    price.batch_clear(['B2:B100'])
+                    print('Bently has been cleared!')
 
             elif str_name == 'Spookie':
                 values_list = price.col_values(3)
                 values_to_use = [int(num) for num in values_list[1:]]
                 total_value_spookie = sum(values_to_use)
                 print(f'The total price for Spookie is ${total_value_spookie}')
+                print('If the total price for Spookie has been paid,')
+                print('you can clear total price for Spookie.')
+                print('Remember if price is cleard information is lost')
+                clear_column = input('Clear Spookie? Enter "Yes":\n')
+                if clear_column.capitalize() == 'Yes':
+                    price.batch_clear(['C2:C100'])
+                    print('Spookie has been cleared!')
 
             elif str_name == 'Baltzar':
                 values_list = price.col_values(4)
                 values_to_use = [int(num) for num in values_list[1:]]
                 total_value_baltzar = sum(values_to_use)
                 print(f'The total price for Baltzar is ${total_value_baltzar}')
-                #input('Would you like to delete Baltzar?')
-                #if input == 'yes'
-                #values_list = price.col_values(4)
-
+                print('If the total price for Baltzar has been paid,')
+                print('you can clear total price for Baltzar.')
+                print('Remember if price is cleard information is lost')
+                clear_column = input('Clear Baltzar? Enter "Yes":\n')
+                if clear_column.capitalize() == 'Yes':
+                    price.batch_clear(['D2:D100'])
+                    print('Baltzar has been cleared!')
             else:
                 print('Name not found.')
 
