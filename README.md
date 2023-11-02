@@ -1,6 +1,6 @@
 # Dog Walk AB
 
-Dog Walk AB is a personalized program for dog walking companies. This program will help user to keep trac of number of walks in a day for each dog. This program will also calculate the total price for each dog. By simply typing in the name of the dog the total price will be displayed.
+Dog Walk AB is a personalized program for dog walking companies. This program will help user to keep track of number of walks in a day for each dog. This program will also calculate the total price for each dog. By simply typing in the name of the dog the total price will be displayed.
 
 
 - Link to deployed project:
@@ -27,16 +27,15 @@ The Welcome text provides the user with information on how to enter number of wa
 
 - Updating worksheet
 
-When user has enterd number of walks the information will be stored inside a worksheet called walks. By default the user will be informed of the daily revanue. The daily revanue will be stored in worksheet called prices. From this worksheet the user will be abel to extrect information of the total price for each dog.
+When user has enterd number of walks the information will be stored inside a worksheet called walks. By default the user will be informed of the daily revenue. The daily revenue will be stored in worksheet called prices. From this worksheet the user will be abel to extrect information of the total price for each dog.
 
 ![Update worksheet](docs/calculate-revenue.png)
 
 - Exit program
 
-When the user is ready to leave the program, he/she enters exit in the input. The program will then clear the terminal automatically after 5 second.
+When the user is ready to leave the program, he/she enters exit in the input. The program will then clear the terminal automatically after 3 second.
 
 ![Exit program](docs/calculate-exit.png)
-
 - Color terminal
 
 To make the program user friendly there is a color function that will randomly change the color of the text in the terminal. This is to make the program funnier to use.
@@ -48,24 +47,34 @@ To make the program user friendly there is a color function that will randomly c
 ## Data Model
 ## Testing
 ### Following tests were carried out:
-- User inputs will be handeld, if input value is incorrect this will be handeld with information of error.
+- User inputs will be handled, if input value is incorrect this    
+  will be handled with information of error.
 - Walks worksheet updates with the right number of walks
 - Each dog name collects correct value from price 
 - Daily revanue calculates correctly and stores in price worksheet
 - Exit function will close the program
 
 ### Bugs
- Problem with clear()
- When the clear() is carried out, the whole terminal is not cleared out. 
- Satus: Under investigation.
+ - Clear()
+
+    When the clear() is carried out, the whole terminal is not cleared out. This is thought to have to do with the termina size. To fix this bug I could place several clear() so the terminal never gets completly filled.
+    Satus: Under investigation.
+
+- Clear price columns
+
+    There is a bug in the program that results in error message. This will occure when user clears price worksheet. The column clears as it should, but when the user wants to get the total revenue the program errors. This bug is belived to have to do with the cleared columns. When the function who calculates prices runs it seems to read the empty cell values as strings. Which are not allowed inside the calculate function.
+    Status: Under investigation.
 
 ### Solved Bugs
-Problem with deployment to Heroku. When trying to deploy project error message occured. This was because the import of gspread was never installed in the terminal.
-Status: Fixed.
+- Problem with deployment to Heroku.
+
+    When trying to deploy project  
+    error message occured. This was because the import of gspread was never installed in the terminal.
+    Status: Fixed.
 
 ### Validator Testing
 - PEP8 https://pep8ci.herokuapp.com/
-  - Validation showed minor errors of whitespces. This errors were corrected. No errors left in program.
+  - Validation showed minor errors of whitespces. Theese errors were corrected. No errors left in program.
 *** 
 ## Libraries and Software
 ### Libraries used:
@@ -82,6 +91,29 @@ Status: Fixed.
 
 
 ## Deployment
+To deploy project.
+
+- Create a Heroku account.
+- Log in to Heroku account.
+- In the dashbord choose "Create new app". It's located in the 
+  middel of the dashboard.
+- Give the new app a name and choose what region you are from. 
+- When information is enterd, find the tabs to Overview, Resources, Deploy, Metrics, Activity, Access and Settings. This should be in the upper right of the site. Click "Settings" tab.
+- Find the Config Vars section and click the "Reveal Config Vars".
+Enter information if there is hidden information in Github  repository. In this project a creds.json file was enterd. If you don't have any hidden information in Github, step over the two following sections.
+- Inside Create config vars, enter KEYS and VALUE. Inside KEYS enter CREDS and copy and paste information from creds.json file, into VALUE. Click the "Add" button. 
+- Add a new KEY with PORT and VALUE 8000. Click "Add" button.
+- Scroll down to Buildpacks section. Click "Add buildpack". 
+- Choose buildpack Python and "Save changes". Add another buldpack with nodjs. Save changes. It is importent that the buildpacks are added in the correct order. Drag and drop buildpacks if they are in the wrong order.
+- When buildpacks are in order. Locate the "Deploy" tab. It's found on the leftside of "Settings" tab.
+- In the Deployment method section, choose GitHub to connect repository. Confirm request to connect GitHub.
+-Search for repo-name. This is the name of repository. Click "Search". 
+-Click "Connect" to link Heroku app to GitHub repository.
+-Scroll down to Automatic deploy section and Manual deploy section.
+-Choose how project should be deployed. If Enable Automatic Deploys, Heroku rebuilds app every time new changes are pushed.
+- If Manual deploy is choosen the current state of the project will be deployed. For this alternative click "Deploy Branch".
+- When project is deployed there will be four green circles with checkmarks inside. There should be a message "Yor app was successfully deployed.". Click the "View" button to se deployed project. If steps are followed there should be a mock terminal with project inside of it. Program starts automaticly. 
+
 ***
 ## Credits
 
