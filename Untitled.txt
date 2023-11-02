@@ -222,3 +222,11 @@ ef delete_prices():
             calculate_price_for_one_dog()
         elif action == 'Exit':
             exit()
+
+
+            def worksheet_update(name):
+    name = input(f'Insert new dog name here:\n')
+    walks_worksheet = SHEET.worksheet('walks')
+    walks_worksheet.update_cell(1, 5, {name})
+
+    return name

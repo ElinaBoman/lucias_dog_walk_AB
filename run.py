@@ -102,11 +102,13 @@ def calculate_price_for_one_dog():
     while True:
         print('Would you like to calculate the total price for a dog?')
         print('Else enter exit.')
-        str_name = input('Name of dog: or Exit \n')
+        str_name = input('Name of dog: or "Exit" \n')
         str_name = str_name.capitalize()
 
         if str_name == 'Exit':
+            print('Thank you for today!')
             break
+            
         elif str_name not in price_worksheet:
             print(f'No dog named {str_name} in register.')
             print('Please try again...')
@@ -129,11 +131,16 @@ def calculate_price_for_one_dog():
                 values_to_use = [int(num) for num in values_list[1:]]
                 total_value_spookie = sum(values_to_use)
                 print(f'The total price for Spookie is ${total_value_spookie}')
+
             elif str_name == 'Baltzar':
                 values_list = price.col_values(4)
                 values_to_use = [int(num) for num in values_list[1:]]
                 total_value_baltzar = sum(values_to_use)
                 print(f'The total price for Baltzar is ${total_value_baltzar}')
+                #input('Would you like to delete Baltzar?')
+                #if input == 'yes'
+                #values_list = price.col_values(4)
+
             else:
                 print('Name not found.')
 
@@ -149,7 +156,7 @@ def calculate_total_price(data):
         int_column = [int(num) for num in column]
         total_price = sum(int_column)
         new_price_data.append(total_price)
-    print(new_price_data)
+        print(new_price_data)
 
 
 def clear_terminal():
@@ -157,7 +164,7 @@ def clear_terminal():
     Clear terminal when functions have updated walks and price worksheet.
     Code was designed togheter with ChatGPT.
     """
-    time.sleep(5)
+    time.sleep(3)
     os.system('clear')
 
 
@@ -184,6 +191,7 @@ def main():
     """
     red, green, blue = generateRGB()
     generateColor(red, green, blue)
+
     data = get_number_of_walks()
     walks_data = [int(num) for num in data]
     update_walks_worksheet(walks_data)
@@ -198,7 +206,15 @@ print(pyfiglet.figlet_format("Dog Walk AB", font='big', width=110))
 Figlet text
 """
 print('Welcome to Dog Walk AB!\n')
+print('Let us store number of walks and calculate your revenue!')
+print('The price for one walk is $5.')
+print('Dogs in the register are Lou, Bently, Spookie and Baltzar.\n')
+print('Follow the instructions to enter number of walks.')
+print('After that we will calculate daily revanue.\n')
+print('If you would like to see total cost for a specific dog,')
+print('we will fetch thoose numbers for you!\n')
 print("Let's enter todays walks and calculate the total price!")
+
 red, green, blue = generateRGB()
 color = generateColor(red, green, blue)
 print(color)
