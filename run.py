@@ -129,8 +129,8 @@ def calculate_price_for_one_dog():
                 print(f'Total revenue for Lou is ${total_value_lou}')
                 print('If the total price for Lou has been paid,')
                 print('you can clear total price for Lou.')
-                print(f'{fg.red}Remember if price is cleard information is lost{rs.fg}')
-                clear_column = input('Clear Lou? Enter "Yes":\n')
+                print(f'{fg.red}Remember if price is cleard information is lost{rs.all}')
+                clear_column = input('Enter "Yes" to clear, else press enter.\n')
                 if clear_column.capitalize() == 'Yes':
                     price.batch_clear(['A2:A100'])
                     print('Lou has been cleared!')
@@ -143,7 +143,7 @@ def calculate_price_for_one_dog():
                 print('If the total price for Bently has been paid,')
                 print('you can clear total price for Bently.')
                 print(f'{fg.red}Remember if price is cleard information is lost{rs.fg}')
-                clear_column = input('Clear Bently? Enter "Yes":\n')
+                clear_column = input('Enter "Yes" to clear, else press enter.\n')
                 if clear_column.capitalize() == 'Yes':
                     price.batch_clear(['B2:B100'])
                     print('Bently has been cleared!')
@@ -156,7 +156,7 @@ def calculate_price_for_one_dog():
                 print('If the total price for Spookie has been paid,')
                 print('you can clear total price for Spookie.')
                 print(f'{fg.red}Remember if price is cleard information is lost{rs.fg}')
-                clear_column = input('Clear Spookie? Enter "Yes":\n')
+                clear_column = input('Enter "Yes" to clear, else press enter.\n')
                 if clear_column.capitalize() == 'Yes':
                     price.batch_clear(['C2:C100'])
                     print('Spookie has been cleared!')
@@ -168,8 +168,8 @@ def calculate_price_for_one_dog():
                 print(f'Total revenue for Baltzar is ${total_value_baltzar}')
                 print('If the total price for Baltzar has been paid,')
                 print('you can clear total price for Baltzar.')
-                print(f'{fg.red}Remember if price is cleard information is lost{rs.fg}')
-                clear_column = input('Clear Baltzar? Enter "Yes":\n')
+                print(f'{fg.red}Remember if price is cleard information is lost{rs.all}')
+                clear_column = input('Clear Baltzar? Enter "Yes"\n')
                 if clear_column.capitalize() == 'Yes':
                     price.batch_clear(['D2:D100'])
                     print('Baltzar has been cleared!')
