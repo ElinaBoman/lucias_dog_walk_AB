@@ -4,7 +4,7 @@ import pyfiglet
 import os
 import time
 import random
-from sty import fg
+from sty import fg, rs
 
 
 SCOPE = [
@@ -21,7 +21,8 @@ SHEET = GSPREAD_CLIENT.open('Lucias_dog_walk_AB')
 
 def get_number_of_walks():
     """
-    Get number of walks input from the user
+    Get number of walks input from the user.
+    This code has been inspired by Code Institutes Love Sandwiches project.
     """
     while True:
         print('Please enter number of walks for each dog')
@@ -42,6 +43,8 @@ def get_number_of_walks():
 def validate_data(values):
     """
     Validates the numbers inserted by user
+    This code is from Code Institutes Love Sandwiches project. 
+    It has been adjusted to suit this program.
     """
     print(values)
     try:
@@ -70,7 +73,7 @@ def update_price_data(price_data):
     Updates price worksheet with calculated prices.
     The returned value is the price for each dog and day.
     """
-    print('Updating price worksheet...\n')
+    print('Updating price worksheet with todays earnings...\n')
     price_worksheet = SHEET.worksheet('price')
     price_worksheet.append_row(price_data)
     print('Price worksheet updated successfully!\n')
@@ -81,7 +84,7 @@ def calculate_revenue_data(walks_row):
     Calculates earnings for each dog and day
     Every walk is multiplyed with the price per walk (5$)
     """
-    print('Calculating revenue...')
+    print('Calculating daily revenue for all dogs...')
     price = SHEET.worksheet('price').get_all_values()
     price_row = price[-1]
     global price_data
@@ -95,7 +98,12 @@ def calculate_revenue_data(walks_row):
 
 def calculate_price_for_one_dog():
     """
-    Calculates total price for one dog
+    Calculates total price for one dog.
+    First this function wants to know if this function should run or exit.
+    If user wants to continue, the program searches for name of dogs in register.
+    If the name is in register, the total price for choosen dog will be displayed. 
+    Then the nested argument wants to know if the price column should be cleared.
+    If user not enters "Yes" the program will go back to the While loop.
     """
     price = SHEET.worksheet('price')
     price_worksheet = SHEET.worksheet('price').row_values(1)
@@ -118,11 +126,10 @@ def calculate_price_for_one_dog():
                 values_list = price.col_values(1)
                 values_to_use = [int(num) for num in values_list[1:]]
                 total_value_lou = sum(values_to_use)
-                print(f'The total price for Lou is ${total_value_lou}')
-                
+                print(f'Total revenue for Lou is ${total_value_lou}')
                 print('If the total price for Lou has been paid,')
                 print('you can clear total price for Lou.')
-                print('Remember if price is cleard information is lost')
+                print(f'{fg.red}Remember if price is cleard information is lost{rs.fg}')
                 clear_column = input('Clear Lou? Enter "Yes":\n')
                 if clear_column.capitalize() == 'Yes':
                     price.batch_clear(['A2:A100'])
@@ -132,10 +139,10 @@ def calculate_price_for_one_dog():
                 values_list = price.col_values(2)
                 values_to_use = [int(num) for num in values_list[1:]]
                 total_value_bently = sum(values_to_use)
-                print(f'The total price for Bently is ${total_value_bently}')
+                print(f'Total revenue for Bently is ${total_value_bently}')
                 print('If the total price for Bently has been paid,')
                 print('you can clear total price for Bently.')
-                print('Remember if price is cleard information is lost')
+                print(f'{fg.red}Remember if price is cleard information is lost{rs.fg}')
                 clear_column = input('Clear Bently? Enter "Yes":\n')
                 if clear_column.capitalize() == 'Yes':
                     price.batch_clear(['B2:B100'])
@@ -145,10 +152,10 @@ def calculate_price_for_one_dog():
                 values_list = price.col_values(3)
                 values_to_use = [int(num) for num in values_list[1:]]
                 total_value_spookie = sum(values_to_use)
-                print(f'The total price for Spookie is ${total_value_spookie}')
+                print(f'Total revenue for Spookie is ${total_value_spookie}')
                 print('If the total price for Spookie has been paid,')
                 print('you can clear total price for Spookie.')
-                print('Remember if price is cleard information is lost')
+                print(f'{fg.red}Remember if price is cleard information is lost{rs.fg}')
                 clear_column = input('Clear Spookie? Enter "Yes":\n')
                 if clear_column.capitalize() == 'Yes':
                     price.batch_clear(['C2:C100'])
@@ -158,30 +165,16 @@ def calculate_price_for_one_dog():
                 values_list = price.col_values(4)
                 values_to_use = [int(num) for num in values_list[1:]]
                 total_value_baltzar = sum(values_to_use)
-                print(f'The total price for Baltzar is ${total_value_baltzar}')
+                print(f'Total revenue for Baltzar is ${total_value_baltzar}')
                 print('If the total price for Baltzar has been paid,')
                 print('you can clear total price for Baltzar.')
-                print('Remember if price is cleard information is lost')
+                print(f'{fg.red}Remember if price is cleard information is lost{rs.fg}')
                 clear_column = input('Clear Baltzar? Enter "Yes":\n')
                 if clear_column.capitalize() == 'Yes':
                     price.batch_clear(['D2:D100'])
                     print('Baltzar has been cleared!')
             else:
                 print('Name not found.')
-
-
-def calculate_total_price(data):
-    """
-    Calculate columns data
-    """
-    print('Calculate price data...')
-    new_price_data = []
-
-    for column in data:
-        int_column = [int(num) for num in column]
-        total_price = sum(int_column)
-        new_price_data.append(total_price)
-        print(new_price_data)
 
 
 def clear_terminal():

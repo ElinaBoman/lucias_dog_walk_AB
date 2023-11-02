@@ -1,232 +1,28 @@
-def get_number_of_walks():
-    """
-    Get number of walks input from the user
-    """
-    while True:
-        print('Please enter number of walks for each dog')
-        print('Data should be separated by commas')
-        print('Each number represents total walks for one dog in a day')
-        print('Enter walks in following order: Lou, Bently, Spookie, Baltzar')
-        print('Example: 1, 2, 3, 4\n')
-
-        data_str = input('Enter number of walks here: ')
-        
-        #This splits the data by the (,) to make it into a list.*****
-        #The list will be added to the worksheet.****
-        walks_data = data_str.split(',')
-        
-        if validate_data(walks_data):
-            print('Data is valid!')
-            break
-
-    return walks_data
-
-
-def validate_data(values):
-    """
-    Validates the numbers inserted by user
-    """
-    print(values)
-
-    try:
-        [int(value) for value in values]
-        if len(values) != 4:
-            raise ValueError(
-            f'Please enter 4 values, you provided{len(values)}'
-            )
-    except ValueError as e:
-        print(f'Invalid data: {e}, please try again.\n')
-        return False
-
-    return True
-
-
-
-               
-    try:
-        
-        print('Wich dog would you like to calculate price for?')
-        dog_name = (input('Enter name of dog:'))
-        str(dog_name)
-
-    except ValueError as e:
-        print(f'Error: {e}')
-        print('Name is not in the register.')
-        print('Please try again.')
-
-    while True:
-        print('Please enter name of dog.')
-        
-        if dog_name not in valid_dog_names:
-            print('Name is invalid')
-            print(f'No dog named {dog_name}.')
-            return True
-
-        else:
-            print('Name is valid!')
-            return False
-            break
-
-
-
+Would you like to calculate the total price for a dog?
+Else enter exit.
+Name of dog: or "Exit" 
+lou
 Traceback (most recent call last):
-  File "run.py", line 220, in <module>
-    get_price()
-  File "run.py", line 125, in get_price
-    column_data = [int(value) for value in column_data]
-  File "run.py", line 125, in <listcomp>
-    column_data = [int(value) for value in column_data]
-ValueError: invalid literal for int() with base 10: 'Lou
+  File "run.py", line 255, in <module>
+    main()
+  File "run.py", line 233, in main
+    calculate_price_for_one_dog()
+  File "run.py", line 127, in calculate_price_for_one_dog
+    values_to_use = [int(num) for num in values_list[1:]]
+  File "run.py", line 127, in <listcomp>
+    values_to_use = [int(num) for num in values_list[1:]]
+ValueError: invalid literal for int() with base 10: ''
 
-
-   """
-    columns = []
-    for ind in range(1, 5):
-        column = price.col_values(ind)
-        columns.append(column[1:])
-    
-    return columns
+def calculate_total_price(data):
     """
-
+    Calculate columns data
     """
-walks_worksheet = SHEET.worksheet('walks')
-val = walks_worksheet.acell('B1').value
-print(val)
-"""
+    print('Calculate price data...')
+    new_price_data = []
 
+    for column in data:
+        int_column = [int(num) for num in column]
+        total_price = sum(int_column)
+        new_price_data.append(total_price)
+        print(new_price_data)
 
-while True:
-    print('Would you like to calculate total price? Else enter exit.')
-    str_name = input('Dog name: ')
-    str_name = str_name.capitalize()
-
-    if str_name == 'Exit':  # Check for 'Exit' in title case
-        break
-    else:
-        # Your code to calculate total price for dog names
-
-
-        def validate_dog_name():
-    """
-    Validates input from user to check if name is in register.
-    If name not in valid_dog_names user will get a print message to try again.
-    This will loop until the name is inside register.
-    """
-    price_worksheet = SHEET.worksheet('price').row_values(1)
-    
-    while True:
-       
-        print('Please enter name of dog.\n')
-        dog_name = (input('Enter name of dog:\n'))
-        dog_name = dog_name.capitalize()
-        
-        if dog_name not in price_worksheet:
-            print('Name is invalid')
-            print(f'No dog named {dog_name}.')
-        else:
-            print('Name is valid!\n')
-            return False      
-    return (dog_name)
-
-
-
-
-def calculate_price_for_one_dog():
-    """
-    Calculates total price for one dog
-    """
-    price = SHEET.worksheet('price')
-    price_worksheet = SHEET.worksheet('price').row_values(1)
-
-    while True:
-        print('Would you like to calculate the total price for a dog?')
-        print('Else enter exit.')
-        str_name = input('Name of dog: or Exit \n')
-        str_name = str_name.capitalize()
-
-        if str_name not in price_worksheet:
-            print('Name is invalid')
-            print(f'No dog named {str_name}.')
-        else:
-            print('Name is valid!\n')
-
-        while True:
-            if str_name == 'Exit':
-                 break
-
-            elif str_name == 'Lou':
-                values_list = price.col_values(1)
-                values_to_use = [int(num) for num in values_list[1:]]
-                total_value_lou = sum(values_to_use)
-                print(f'The total price for Lou is ${total_value_lou}')
-            
-            elif str_name == 'Bently':
-                values_list = price.col_values(2)
-                values_to_use = [int(num) for num in values_list[1:]]
-                total_value_bently = sum(values_to_use)
-                print(f'The total price for Bently is ${total_value_bently}')
-
-            elif str_name == 'Spookie':
-                values_list = price.col_values(3)
-                values_to_use = [int(num) for num in values_list[1:]]
-                total_value_spookie = sum(values_to_use)
-                print(f'The total price for Spookie is ${total_value_spookie}')
-                        
-            elif str_name == 'Baltzar':
-                values_list = price.col_values(4)
-                values_to_use = [int(num) for num in values_list[1:]]
-                total_value_baltzar = sum(values_to_use)
-                print(f'The total price for Baltzar is ${total_value_baltzar}')
-                        
-            else:
-                print('Name not found.')
-
-            return False      
-        return (str_name)
-
-
-    
-    def delete_column_except_heading(sheet_name, column_index):
-    # Open the specified worksheet by name
-    worksheet = SHEET.worksheet(sheet_name)
-
-    # Get the header row
-    header_row = worksheet.row_values(1)
-
-    # Delete the specified column
-    del header_row[column_index - 1]  # Adjust for 1-based index
-    worksheet.delete_rows(1)
-    worksheet.insert_rows(header_row, 1)
-
-# Usage example
-delete_column_except_heading('price', 2)  # Delete the 2nd colum
-
-ef delete_prices():
-    price = SHEET.worksheet('price')
-    walks = SHEET.worksheet('walks')
-
-    de
-
-    def option():
-    while True:
-        print('What would you like to do today?')
-        action = input('"Enter walks" or "calculate total price?"')
-        if action == 'Enter walks':
-            walks_data = get_number_of_walks()
-            print(walks_data)
-            update_walks_worksheet(walks_data)
-            price_data = calculate_revenue_data()
-            update_price_data(price_data)
-            print(price_data)
-        elif action == 'Calculate total price':
-            calculate_price_for_one_dog()
-        elif action == 'Exit':
-            exit()
-
-
-            def worksheet_update(name):
-    name = input(f'Insert new dog name here:\n')
-    walks_worksheet = SHEET.worksheet('walks')
-    walks_worksheet.update_cell(1, 5, {name})
-
-    return name
