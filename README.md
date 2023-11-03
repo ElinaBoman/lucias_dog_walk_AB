@@ -6,7 +6,7 @@ Dog Walk AB is a personalized program for dog walking companies. This program wi
 
 [Click to view project worksheet](https://docs.google.com/spreadsheets/d/1-z2f1tkFrZtLMJW0q38bZneJiyy5Eo5amcbG16H9BkQ/edit#gid=1820810552)
 
-![Am I responsive](docs/amiresponsive.png)
+![Am I responsive](images/amiresponsive.png)
 
 ## User Experience 
 
@@ -36,7 +36,7 @@ https://miro.com/
 
 <details>
   <summary>Miro flowchart</summary>
-  <img src="docs/miro-flow.png" alt="Miro flowchart">
+  <img src="images/miro-flow.png" alt="Miro flowchart">
 </details>
 
 *** 
@@ -51,11 +51,11 @@ The Welcome text provides the user with information on how to enter number of wa
 
 <details>
   <summary>Welcome text picture</summary>
-  <img src="docs/dog-walk-figlet.png" alt="Welcome text picture">
+  <img src="images/dog-walk-figlet.png" alt="Welcome text picture">
 </details>
 <details>
   <summary>Enter number of walks picture</summary>
-  <img src="docs/enter-number.png" alt="Enter number of walks picture">
+  <img src="images/enter-number.png" alt="Enter number of walks picture">
 </details>
 
 - Updating worksheet
@@ -68,7 +68,7 @@ When user has entered number of walks the information will be stored inside a wo
 
 <details>
   <summary>Enter number of walks picture</summary>
-  <img src="docs/calculate-revenue.png" alt="Calculate revenue picture">
+  <img src="images/calculate-revenue.png" alt="Calculate revenue picture">
 </details>
 
 - Deleting price columns
@@ -77,7 +77,7 @@ If the user would like to clear to prices inside the worksheet, he/she can do th
 
 <details>
   <summary>Delete price picture</summary>
-  <img src="docs/delete-price.png" alt="Delete price picture.">
+  <img src="images/delete-price.png" alt="Delete price picture.">
 </details>
 
 - Exit program
@@ -86,7 +86,7 @@ When the user is ready to leave the program, he/she enters exit in the input. Be
 
 <details>
   <summary>Exit program picture</summary>
-  <img src="docs/calculate-exit.png" alt="Exit picture">
+  <img src="images/calculate-exit.png" alt="Exit picture">
 </details>
 
 ### Future Features
@@ -102,11 +102,11 @@ When information is imported from the worksheet, it reads as a List by default. 
 [Click to view project worksheet](https://docs.google.com/spreadsheets/d/1-z2f1tkFrZtLMJW0q38bZneJiyy5Eo5amcbG16H9BkQ/edit#gid=1820810552)
 <details>
   <summary>Worksheet "walks" picture</summary>
-  <img src="docs/walks.png" alt="Worksheet walks picture">
+  <img src="images/walks.png" alt="Worksheet walks picture">
 </details>
 <details>
   <summary>Worksheet "price" picture</summary>
-  <img src="docs/price.png" alt="Worksheet price picture">
+  <img src="images/price.png" alt="Worksheet price picture">
 </details>
 
 ## Testing
@@ -124,7 +124,7 @@ When information is imported from the worksheet, it reads as a List by default. 
 Program was tested to see how errors are handled.
 <details>
   <summary>User testing picture</summary>
-  <img src="docs/usertest.png" alt="User testing picture">
+  <img src="images/usertest.png" alt="User testing picture">
 </details>
 
 
@@ -157,7 +157,7 @@ Status: Under investigation.
 
 <details>
   <summary>CI Python Linter picture</summary>
-  <img src="docs/ci-python-linter.png" alt="CI Python Linter picture">
+  <img src="images/ci-python-linter.png" alt="CI Python Linter picture">
 </details>
 
 ***
