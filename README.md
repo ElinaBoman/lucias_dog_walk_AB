@@ -34,7 +34,11 @@ The Welcome text provides the user with information on how to enter number of wa
 
 - Updating worksheet
 
-When user has enterd number of walks the information will be stored inside a worksheet called walks. By default the user will be informed of the daily revenue. The daily revenue will be stored in worksheet called prices. From this worksheet the user will be abel to extrect information of the total price for each dog.
+When user has enterd number of walks the information will be stored inside a worksheet called walks. By default the user will be informed of the daily revenue. The daily revenue will be stored in worksheet called prices.
+
+- Total price display
+
+ From the price worksheet, the user will be abel to extrect information of the total price for each dog. The user can also choose to delete price column for each dog. The user is presented with the option and also warned that if price information is deleted it is lost. This warning is presented in red text to highlight the result from deleting price information. If user chooses not to delete information he/she is informed to simply press enter. This will lead the user back to the "get total price" question. 
 
 <details>
   <summary>Enter number of walks picture</summary>
@@ -48,7 +52,7 @@ When the user is ready to leave the program, he/she enters exit in the input. Be
 
 <details>
   <summary>Exit program picture</summary>
-  <img src="docs/calculate-exit" alt="Exit picture">
+  <img src="docs/calculate-exit.png" alt="Exit picture">
 </details>
 
 
@@ -61,6 +65,9 @@ To make the program user friendly there is a color function that will randomly c
 - There will be a delete function for the user to delete price for each dog when the price has been paid.
 *** 
 ## Data Model
+The walks and price information is stored in a Googel spread sheet. The worksheet contains two sheets, "walks" and "price". Inside the "walks" sheet information enterd by user is stored. This information is then used to calculate the price, and then store price information inside the "price" sheet.
+When information is imported from the worksheet, it reads as a List by dafault. To be abel to calculate walks and price information the List items are turned into integers instead of strings.
+
 ## Testing
 ### Following tests were carried out:
 - User inputs will be handled, if input value is incorrect this    
@@ -68,6 +75,7 @@ To make the program user friendly there is a color function that will randomly c
 - Walks worksheet updates with the right number of walks
 - Each dog name collects correct value from price 
 - Daily revanue calculates correctly and stores in price worksheet
+- The delete attribute deletes correct column.
 - Exit function will close the program
 
 ### Bugs
@@ -79,7 +87,8 @@ To make the program user friendly there is a color function that will randomly c
 - Clear price columns
 
     There is a bug in the program that results in error message. This will occure when user clears price worksheet. The column clears as it should, but when the user wants to get the total revenue the program errors. This bug is belived to have to do with the cleared columns. When the function who calculates prices runs it seems to read the empty cell values as strings. Which are not allowed inside the calculate function.
-    Status: Under investigation.
+    This problem was fixed by adding code to tell the program to read empty cells as a digits.
+    Status: Fixed.
 
 ### Solved Bugs
 - Problem with deployment to Heroku.
@@ -106,10 +115,12 @@ To make the program user friendly there is a color function that will randomly c
 - random- was used to be abel to randomize color change in terminal
 - sty- was imported to style text in terminal
 ### Software
-- Github
+- GitHub
 - Heroku
 - Codeanywhere
-
+- Googel
+- Youtube
+- ChatGPT
 
 ## Deployment
 To deploy project.
@@ -121,7 +132,7 @@ To deploy project.
 - Give the new app a name and choose what region you are from. 
 - When information is enterd, find the tabs to Overview, Resources, Deploy, Metrics, Activity, Access and Settings. This should be in the upper right of the site. Click "Settings" tab.
 - Find the Config Vars section and click the "Reveal Config Vars".
-Enter information if there is hidden information in Github  repository. In this project a creds.json file was enterd. If you don't have any hidden information in Github, step over the two following sections.
+Enter information if there is hidden information in GitHub  repository. In this project a creds.json file was enterd. If you don't have any hidden information in GitHub, step over the two following sections.
 - Inside Create config vars, enter KEYS and VALUE. Inside KEYS enter CREDS and copy and paste information from creds.json file, into VALUE. Click the "Add" button. 
 - Add a new KEY with PORT and VALUE 8000. Click "Add" button.
 - Scroll down to Buildpacks section. Click "Add buildpack". 
@@ -144,7 +155,7 @@ Enter information if there is hidden information in Github  repository. In this 
 - Love Sandwiches project
 
 #### ChatGPT
-ChatGPT was used to explain python language. ChatGPT helped with explaining while loop, functions and try-except statements. 
+ChatGPT was used to explain python language. ChatGPT helped with explaining while loop, functions and try-except statements. ChatGPT was used to fix bug that made deleted cells into strings. ChatGPT provided code that helped fix this bug. The code provided will tell the computer to read empty cells as digits. 
 
 #### W3schools 
 Was used to find information about Python language.
@@ -152,7 +163,7 @@ Was used to find information about Python language.
 #### gspred
 Was used to find information on how to use gspread and access information in worksheet.
 
-#### Github user gStarhigh
+#### GitHub user gStarhigh
 To create this README I was inspired by the exellent README from gStarhighs project project 3- Python. A budget app.
 
 #### Youtube tutorial

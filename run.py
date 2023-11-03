@@ -106,6 +106,7 @@ def calculate_price_for_one_dog():
     If user not enters "Yes" the program will go back to the While loop.
     """
     price = SHEET.worksheet('price')
+    walks = SHEET.worksheet('walks')
     price_worksheet = SHEET.worksheet('price').row_values(1)
     while True:
         print('Would you like to calculate the total price for a dog?')
@@ -124,54 +125,58 @@ def calculate_price_for_one_dog():
         else:
             if str_name == 'Lou':
                 values_list = price.col_values(1)
-                values_to_use = [int(num) for num in values_list[1:]]
+                values_to_use = [int(num) for num in values_list[1:] if num.strip() and num.strip().isdigit()]
                 total_value_lou = sum(values_to_use)
                 print(f'Total revenue for Lou is ${total_value_lou}')
                 print('If the total price for Lou has been paid,')
                 print('you can clear total price for Lou.')
                 print(f'{fg.red}Remember if price is cleard information is lost{rs.all}')
-                clear_column = input('Enter "Yes" to clear, else press enter.\n')
+                clear_column = input('Enter "Yes" to clear, else press "Enter".\n')
                 if clear_column.capitalize() == 'Yes':
                     price.batch_clear(['A2:A100'])
+                    walks.batch_clear(['A2:A100'])
                     print('Lou has been cleared!')
 
             elif str_name == 'Bently':
                 values_list = price.col_values(2)
-                values_to_use = [int(num) for num in values_list[1:]]
+                values_to_use = [int(num) for num in values_list[1:] if num.strip() and num.strip().isdigit()]
                 total_value_bently = sum(values_to_use)
                 print(f'Total revenue for Bently is ${total_value_bently}')
                 print('If the total price for Bently has been paid,')
                 print('you can clear total price for Bently.')
                 print(f'{fg.red}Remember if price is cleard information is lost{rs.fg}')
-                clear_column = input('Enter "Yes" to clear, else press enter.\n')
+                clear_column = input('Enter "Yes" to clear, else press "Enter".\n')
                 if clear_column.capitalize() == 'Yes':
                     price.batch_clear(['B2:B100'])
+                    walks.batch_clear(['B2:B100'])
                     print('Bently has been cleared!')
 
             elif str_name == 'Spookie':
                 values_list = price.col_values(3)
-                values_to_use = [int(num) for num in values_list[1:]]
+                values_to_use = [int(num) for num in values_list[1:] if num.strip() and num.strip().isdigit()]
                 total_value_spookie = sum(values_to_use)
                 print(f'Total revenue for Spookie is ${total_value_spookie}')
                 print('If the total price for Spookie has been paid,')
                 print('you can clear total price for Spookie.')
                 print(f'{fg.red}Remember if price is cleard information is lost{rs.fg}')
-                clear_column = input('Enter "Yes" to clear, else press enter.\n')
+                clear_column = input('Enter "Yes" to clear, else press "Enter".\n')
                 if clear_column.capitalize() == 'Yes':
                     price.batch_clear(['C2:C100'])
+                    walks.batch_clear(['C2:C100'])
                     print('Spookie has been cleared!')
 
             elif str_name == 'Baltzar':
                 values_list = price.col_values(4)
-                values_to_use = [int(num) for num in values_list[1:]]
+                values_to_use = [int(num) for num in values_list[1:] if num.strip() and num.strip().isdigit()]
                 total_value_baltzar = sum(values_to_use)
                 print(f'Total revenue for Baltzar is ${total_value_baltzar}')
                 print('If the total price for Baltzar has been paid,')
                 print('you can clear total price for Baltzar.')
                 print(f'{fg.red}Remember if price is cleard information is lost{rs.all}')
-                clear_column = input('Clear Baltzar? Enter "Yes"\n')
+                clear_column = input('Clear Baltzar? Enter "Yes" else press "Enter"\n')
                 if clear_column.capitalize() == 'Yes':
                     price.batch_clear(['D2:D100'])
+                    walks.batch_clear(['D2:D100'])
                     print('Baltzar has been cleared!')
             else:
                 print('Name not found.')
