@@ -107,7 +107,8 @@ def calculate_price_for_one_dog():
     displayed.
     Then the nested argument wants to know if the price column should be
     cleared.
-    If user not enters "Yes" the program will go back to the While loop.
+    If "Yes" is enterd the program will clear price and walk columns in worksheet.
+    Then the program will return to the While loop.
     """
     price = SHEET.worksheet('price')
     walks = SHEET.worksheet('walks')
@@ -115,6 +116,7 @@ def calculate_price_for_one_dog():
     while True:
         print('Would you like to calculate the total price for a dog?')
         print('Else enter exit.')
+        print('Dogs in register are Lou, Bently, Spookie and Baltzar.')
         str_name = input('Name of dog: or "Exit" \n')
         str_name = str_name.capitalize()
 
@@ -211,7 +213,7 @@ def generateRGB():
 
 def generateColor(red, green, blue):
     """
-    Generates colord text in terminal
+    Generates colored text in terminal
     """
     return fg(red, green, blue)
 
@@ -232,9 +234,13 @@ def main():
     clear_terminal()
 
 
-print(pyfiglet.figlet_format("Dog Walk AB", font='big', width=110))
 """
 Figlet text
+"""
+print(pyfiglet.figlet_format("Dog Walk AB", font='big', width=110))
+
+"""
+Text that will show before main ()
 """
 print('Welcome to Dog Walk AB!\n')
 print('Let us store number of walks and calculate your revenue!')
