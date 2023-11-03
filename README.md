@@ -95,8 +95,10 @@ When the user is ready to leave the program, he/she enters exit in the input. Be
 To make the program user friendly there is a color function that will randomly change the color of the text in the terminal. This is to make the program funnier to use.
 
 ### Future Features
-- This app should in the future have the abillity to add a new dog to the program.
-- There will be a delete function for the user to delete price for each dog when the price has been paid.
+- This app should in the future have the abillity to add a new dog to the program
+- More styling should be added to text
+- Prices should be adjustable, having different prices for different dogs, depending on maintenance.
+
 *** 
 ## Data Model
 The walks and price information is stored in a Googel spread sheet. The worksheet contains two sheets, "walks" and "price". Inside the "walks" sheet information enterd by user is stored. This information is then used to calculate the price, and then store price information inside the "price" sheet.
@@ -113,11 +115,12 @@ When information is imported from the worksheet, it reads as a List by dafault. 
 - Exit function will close the program
 
 ### Bugs
- - Clear()
 
-    When the clear() is carried out, the whole terminal is not cleared out. This is thought to have to do with the termina size. To fix this bug I could place several clear() so the terminal never gets completly filled.
-    
-    Satus: Under investigation.
+- Colord text
+
+The color text function will stop working after red highlight is enterd. Since this is not part of the colord text function it will break. This leads to the rest of the text enterd after highlight will go back to default color. This could be fixed by reentering color function after highlighted statement. Since this happens when the program is close to finishing the problem of this bug is minimal. When the program restarts the color function runs as it should.
+
+Status: Under investigation.
 
 ### Solved Bugs
 - Problem with deployment to Heroku.
@@ -148,6 +151,18 @@ When information is imported from the worksheet, it reads as a List by dafault. 
 ### Libraries used:
 
 - gspread- was used to handle Google Sheets API by Python
+
+[Click to view project worksheet](https://docs.google.com/spreadsheets/d/1-z2f1tkFrZtLMJW0q38bZneJiyy5Eo5amcbG16H9BkQ/edit#gid=1820810552)
+<details>
+  <summary>Worksheet "walks" picture</summary>
+  <img src="docs/walks.png" alt="Worksheet walks picture">
+</details>
+<details>
+  <summary>Worksheet "price" picture</summary>
+  <img src="docs/price.png" alt="Worksheet price picture">
+</details>
+
+
 - pyfiglet- was used to write Dog Walk logo
 - os- was used to be able to clear the terminal
 - time- was used to set a timefunction to clear the terminal.
@@ -164,7 +179,7 @@ When information is imported from the worksheet, it reads as a List by dafault. 
 - Miro
 
 ## Deployment
-To deploy project.
+### To deploy project in Heroku
 
 - Create a Heroku account.
 - Log in to Heroku account.
@@ -187,25 +202,34 @@ Enter information if there is hidden information in GitHub  repository. In this 
 - If Manual deploy is choosen the current state of the project will be deployed. For this alternative click "Deploy Branch".
 - When project is deployed there will be four green circles with checkmarks inside. There should be a message "Yor app was successfully deployed.". Click the "View" button to se deployed project. If steps are followed there should be a mock terminal with project inside of it. Program starts automaticly. 
 
+### To deploy project in GitHub
+Note, this program uses Heroku to function. This means that deployment can not function if only GitHub is used. Follow steps described inside "To deploy project in Heroku". 
+1. First, navigate to the Settings tab
+2. In the dropdown menu scroll down to Pages
+3. Inside the Pages tab choose Source, Deploy from branch
+4. Under the branch enter main and /(root)
+5. Enter save
+6. When the site has been deployed a Manilla folder will show up with a red ribbon
 ***
 ## Credits
 
-#### Code institute
-- Tutoring sessions with Code Institute.
-- My fantastic mentor Brian O'Hare.
+#### Code Institute
+- Tutoring sessions with Code Institute
+- My fantastic mentor Brian O'Hare
+- Class mentor David Calikes who helped me getting trough this project
 - Love Sandwiches project
 
 #### ChatGPT
 ChatGPT was used to explain python language. ChatGPT helped with explaining while loop, functions and try-except statements. ChatGPT was used to fix bug that made deleted cells into strings. ChatGPT provided code that helped fix this bug. The code provided will tell the computer to read empty cells as digits. 
 
-#### W3schools 
-Was used to find information about Python language.
+#### Over all credits:
+- W3schools 
+    Was used to find information about Python language.
+- gspred
+    Was used to find information on how to use gspread and access information in worksheet.
 
-#### gspred
-Was used to find information on how to use gspread and access information in worksheet.
+- GitHub user gStarhigh
+    To create this README I was inspired by the exellent README from gStarhighs project project 3- Python. A budget app.
 
-#### GitHub user gStarhigh
-To create this README I was inspired by the exellent README from gStarhighs project project 3- Python. A budget app.
-
-#### Youtube tutorial
-Learn Python Functions - Quick Python Project For Beginners by Python Simplified.
+-  Youtube tutorial
+    Learn Python Functions - Quick Python Project For Beginners by Python Simplified.
