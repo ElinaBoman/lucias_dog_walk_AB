@@ -25,24 +25,33 @@ The Welcome text provides the user with information on how to enter number of wa
 
 <details>
   <summary>Welcome text picture</summary>
-  <img src="docs/dog-walk-figlet.png" alt="Your Image Description">
+  <img src="docs/dog-walk-figlet.png" alt="Welcome text picture">
 </details>
 <details>
   <summary>Enter number of walks picture</summary>
-  <img src="docs/enter-number.png" alt="Your Image Description">
+  <img src="docs/enter-number.png" alt="Enter number of walks picture">
 </details>
 
 - Updating worksheet
 
 When user has enterd number of walks the information will be stored inside a worksheet called walks. By default the user will be informed of the daily revenue. The daily revenue will be stored in worksheet called prices. From this worksheet the user will be abel to extrect information of the total price for each dog.
 
-![Update worksheet](docs/calculate-revenue.png)
+<details>
+  <summary>Enter number of walks picture</summary>
+  <img src="docs/calculate-revenue.png" alt="Calculate revenue picture">
+</details>
+
 
 - Exit program
 
-When the user is ready to leave the program, he/she enters exit in the input. The program will then clear the terminal automatically after 3 second.
+When the user is ready to leave the program, he/she enters exit in the input. Before the program exits there is a print message reading "Thank you for today!" The program will then clear the terminal automatically after 3 second. 
 
-![Exit program](docs/calculate-exit.png)
+<details>
+  <summary>Exit program picture</summary>
+  <img src="docs/calculate-exit" alt="Exit picture">
+</details>
+
+
 - Color terminal
 
 To make the program user friendly there is a color function that will randomly change the color of the text in the terminal. This is to make the program funnier to use.
@@ -82,6 +91,11 @@ To make the program user friendly there is a color function that will randomly c
 ### Validator Testing
 - PEP8 https://pep8ci.herokuapp.com/
   - Validation showed minor errors of whitespces. Theese errors were corrected. No errors left in program.
+
+  <details>
+  <summary>CI Python Linter picture</summary>
+  <img src="docs/ci-python-linter.png" alt="CI Python Linter picture">
+</details>
 *** 
 ## Libraries and Software
 ### Libraries used:
