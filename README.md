@@ -30,7 +30,7 @@ It's important that the program:
 To use the program, simply follow the instructions provided. Enter number of walks in presented order. Then if the user would like to see the total cost for a dog, enter name of the dog and the total price will be fetched! If the user would like to delete the total price, the program provides this service.This would be incase the total price has been paid off, and the user would like to reset the total price. When the user wants to leave the program he/she enters the word "Exit" and the program will read "Thank you for today!", and then exits.
 
 ## Flowchart 
-In plaing of this program a simple flowchar was created with website Miro. This helped to create the basic structure of how the functions would work depending on user input. 
+In plaing of this program a simple flowchart was created with website Miro. This helped to create the basic structure of how the functions would work depending on user input. 
 
 https://miro.com/
 
@@ -71,6 +71,14 @@ When user has enterd number of walks the information will be stored inside a wor
   <img src="docs/calculate-revenue.png" alt="Calculate revenue picture">
 </details>
 
+- Deleteing price columns
+
+If the user would like to clear to prices inside the worksheet, he/she can do this by entering name of dog that should be cleared and then enter "Yes" when prgram asks if user wants to delete total price.
+
+<details>
+  <summary>Delete price picture</summary>
+  <img src="docs/delete-price.png" alt="Delete price picture.">
+</details>
 
 - Exit program
 
