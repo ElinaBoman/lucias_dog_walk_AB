@@ -1,7 +1,6 @@
 # Dog Walk AB
 
-Dog Walk AB is a personalized program for dog walking companies. This program will help user to keep track of number of walks in a day for each dog. This program will also calculate the total price for each dog. By simply typing in the name of the dog the total price will be displayed.
-
+Dog Walk AB is a personalized program for dog walking companies. This program will help user to store information of walks and prices for each dog.
 
 - Link to deployed project:
 https://dog-walk-ab-b6fc65e542c7.herokuapp.com/
@@ -11,8 +10,37 @@ https://docs.google.com/spreadsheets/d/1-z2f1tkFrZtLMJW0q38bZneJiyy5Eo5amcbG16H9
 
 ![Am I responsive](docs/amiresponsive.png)
 
+## User Experience 
+
+This program runs inside a mock terminal. This limited the abillity to create a creative frontend for the user. To create some user friendly features styling has been added to the text inside the terminal. The text will change color each time the program runs. Darker text will not be used since this would create a bad user experience. Importent text content is highlighted with red color. 
+
+A pyfiglet text with Dog Walk AB logo welcomes the user each time the program is started. There were several fonts to choose from for the logo. Ultimately the font that were choosen suited the terminal without taking up to much space or being to distractive.
+
+There are several inputs needed by the user. To make it as easy as possible for the user, informative text will explain what inputs are needed. If the input is invalid, it will be explained to the user and also what input the program expects. The information can seem a bit repetitive, but this is to minimize confusion for user so he/she understands what kind of inputs the program are looking for.
+
+## User Stories
+
+It's important that the program:
+- Explains its purpose
+- Explines functionality
+- Has easy and informative instructions
+- Helps the user if inputs are invalid
+- Inputs don't have to be capitalized in order to work
+- Is easy to exit 
+
 ## How to use
-To use the program, simply follow the instructions provided. Enter number of walks in presented order. Then if the user would like to see the total cost for a dog, enter name of the dog and the total price will be fetched! If the user would like to leave the program it is really simple. Just write exit and the program will finish and the terminal will clear it self.
+To use the program, simply follow the instructions provided. Enter number of walks in presented order. Then if the user would like to see the total cost for a dog, enter name of the dog and the total price will be fetched! If the user would like to delete the total price, the program provides this service.This would be incase the total price has been paid off, and the user would like to reset the total price. When the user wants to leave the program he/she enters the word "Exit" and the program will read "Thank you for today!", and then exits.
+
+## Flowchart 
+In plaing of this program a simple flowchar was created with website Miro. This helped to create the basic structure of how the functions would work depending on user input. 
+
+https://miro.com/
+
+<details>
+  <summary>Miro flowchart</summary>
+  <img src="docs/miro-flow.png" alt="Miro flowchart">
+</details>
+
 *** 
 ## Features
 
@@ -107,9 +135,12 @@ When information is imported from the worksheet, it reads as a List by dafault. 
   <summary>CI Python Linter picture</summary>
   <img src="docs/ci-python-linter.png" alt="CI Python Linter picture">
 </details>
-*** 
-## Libraries and Software
+
+***
+
+## Libraries and Technologies
 ### Libraries used:
+
 - gspread- was used to handle Google Sheets API by Python
 - pyfiglet- was used to write Dog Walk logo
 - os- was used to be able to clear the terminal
@@ -124,6 +155,7 @@ When information is imported from the worksheet, it reads as a List by dafault. 
 - Googel
 - Youtube
 - ChatGPT
+- Miro
 
 ## Deployment
 To deploy project.

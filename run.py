@@ -98,7 +98,7 @@ def calculate_revenue_data(walks_row):
 
 def calculate_price_for_one_dog():
     """
-    Calculates total price for one dog.
+    Calculates total price for one dog. 
     First this function wants to know if this function should run or exit.
     If user wants to continue, the program searches for name of dogs in register.
     If the name is in register, the total price for choosen dog will be displayed. 
