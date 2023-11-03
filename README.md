@@ -82,13 +82,8 @@ When information is imported from the worksheet, it reads as a List by dafault. 
  - Clear()
 
     When the clear() is carried out, the whole terminal is not cleared out. This is thought to have to do with the termina size. To fix this bug I could place several clear() so the terminal never gets completly filled.
+    
     Satus: Under investigation.
-
-- Clear price columns
-
-    There is a bug in the program that results in error message. This will occure when user clears price worksheet. The column clears as it should, but when the user wants to get the total revenue the program errors. This bug is belived to have to do with the cleared columns. When the function who calculates prices runs it seems to read the empty cell values as strings. Which are not allowed inside the calculate function.
-    This problem was fixed by adding code to tell the program to read empty cells as a digits.
-    Status: Fixed.
 
 ### Solved Bugs
 - Problem with deployment to Heroku.
@@ -97,11 +92,18 @@ When information is imported from the worksheet, it reads as a List by dafault. 
     error message occured. This was because the import of gspread was never installed in the terminal.
     Status: Fixed.
 
+- Clear price columns
+
+    There was a bug in the program that results in error message. This would occure when user clears price worksheet. The columns clears as they should, but when the user would like to get the total revenue the program broke. This bug was belived to have to do with the cleared columns. When the calculate_prices function tried to calculate the total price, the empty cells were read as strings. Which are not allowed inside the calculate function.
+    This problem was fixed with help from chatGPT, by adding code to tell the program to read empty cells as a digits.
+    
+    Status: Fixed.
+
 ### Validator Testing
 - PEP8 https://pep8ci.herokuapp.com/
   - Validation showed minor errors of whitespces. Theese errors were corrected. No errors left in program.
 
-  <details>
+<details>
   <summary>CI Python Linter picture</summary>
   <img src="docs/ci-python-linter.png" alt="CI Python Linter picture">
 </details>
@@ -114,6 +116,7 @@ When information is imported from the worksheet, it reads as a List by dafault. 
 - time- was used to set a timefunction to clear the terminal.
 - random- was used to be abel to randomize color change in terminal
 - sty- was imported to style text in terminal
+-pprint- was used to check functions
 ### Software
 - GitHub
 - Heroku
