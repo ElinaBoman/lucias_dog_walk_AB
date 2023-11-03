@@ -115,7 +115,7 @@ def calculate_price_for_one_dog():
     price_worksheet = SHEET.worksheet('price').row_values(1)
     while True:
         print('Would you like to calculate the total price for a dog?')
-        print('Else enter exit.')
+        print('Enter name of dog or "Exit."')
         print('Dogs in register are Lou, Bently, Spookie and Baltzar.')
         str_name = input('Name of dog: or "Exit" \n')
         str_name = str_name.capitalize()
@@ -143,6 +143,7 @@ def calculate_price_for_one_dog():
                     price.batch_clear(['A2:A100'])
                     walks.batch_clear(['A2:A100'])
                     print('Lou has been cleared!')
+                    print('Good job!')
 
             elif str_name == 'Bently':
                 values_list = price.col_values(2)
@@ -158,6 +159,7 @@ def calculate_price_for_one_dog():
                     price.batch_clear(['B2:B100'])
                     walks.batch_clear(['B2:B100'])
                     print('Bently has been cleared!')
+                    print('Good job!')
 
             elif str_name == 'Spookie':
                 values_list = price.col_values(3)
@@ -173,6 +175,7 @@ def calculate_price_for_one_dog():
                     price.batch_clear(['C2:C100'])
                     walks.batch_clear(['C2:C100'])
                     print('Spookie has been cleared!')
+                    print('Good job!')
 
             elif str_name == 'Baltzar':
                 values_list = price.col_values(4)
@@ -188,6 +191,7 @@ def calculate_price_for_one_dog():
                     price.batch_clear(['D2:D100'])
                     walks.batch_clear(['D2:D100'])
                     print('Baltzar has been cleared!')
+                    print('Good job!')
             else:
                 print('Name not found.')
 

@@ -119,6 +119,15 @@ When information is imported from the worksheet, it reads as a List by dafault. 
 - The delete attribute deletes correct column.
 - Exit function will close the program
 
+## User Testing
+
+Program was tested to see how errors are handled.
+<details>
+  <summary>User testing picture</summary>
+  <img src="docs/usertest.png" alt="User testing picture">
+</details>
+
+
 ### Bugs
 
 - Colord text
