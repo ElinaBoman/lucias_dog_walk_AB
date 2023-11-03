@@ -22,8 +22,15 @@ To use the program, simply follow the instructions provided. Enter number of wal
 The user is welcomed with a Pyfiglet styled text. This text displays the Dog Walk AB logo. This gives the otherwise bland terminal a fun decor.
 The Welcome text provides the user with information on how to enter number of walks. If the user enters invalid information there will be a error message. Then the user will be asked to insert new values until the values are correct.
 
-![Welcome text](docs/dog-walk-figlet.png)
-![Welcome text](docs/enter-number.png)
+
+<details>
+  <summary>Welcome text picture</summary>
+  <img src="docs/dog-walk-figlet.png" alt="Your Image Description">
+</details>
+<details>
+  <summary>Enter number of walks picture</summary>
+  <img src="docs/enter-number.png" alt="Your Image Description">
+</details>
 
 - Updating worksheet
 
@@ -117,22 +124,22 @@ Enter information if there is hidden information in Github  repository. In this 
 ***
 ## Credits
 
-### Code institute
+#### Code institute
 - Tutoring sessions with Code Institute.
 - My fantastic mentor Brian O'Hare.
 - Love Sandwiches project
 
-### ChatGPT
+#### ChatGPT
 ChatGPT was used to explain python language. ChatGPT helped with explaining while loop, functions and try-except statements. 
 
-### W3schools 
+#### W3schools 
 Was used to find information about Python language.
 
-### gspred
+#### gspred
 Was used to find information on how to use gspread and access information in worksheet.
 
-### Github user gStarhigh
+#### Github user gStarhigh
 To create this README I was inspired by the exellent README from gStarhighs project project 3- Python. A budget app.
 
-### Youtube tutorial
+#### Youtube tutorial
 Learn Python Functions - Quick Python Project For Beginners by Python Simplified.
