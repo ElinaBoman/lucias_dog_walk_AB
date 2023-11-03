@@ -89,11 +89,6 @@ When the user is ready to leave the program, he/she enters exit in the input. Be
   <img src="docs/calculate-exit.png" alt="Exit picture">
 </details>
 
-
-- Color terminal
-
-To make the program user friendly there is a color function that will randomly change the color of the text in the terminal. This is to make the program funnier to use.
-
 ### Future Features
 - This app should in the future have the abillity to add a new dog to the program
 - More styling should be added to text
@@ -103,6 +98,16 @@ To make the program user friendly there is a color function that will randomly c
 ## Data Model
 The walks and price information is stored in a Googel spread sheet. The worksheet contains two sheets, "walks" and "price". Inside the "walks" sheet information enterd by user is stored. This information is then used to calculate the price, and then store price information inside the "price" sheet.
 When information is imported from the worksheet, it reads as a List by dafault. To be abel to calculate walks and price information the List items are turned into integers instead of strings.
+
+[Click to view project worksheet](https://docs.google.com/spreadsheets/d/1-z2f1tkFrZtLMJW0q38bZneJiyy5Eo5amcbG16H9BkQ/edit#gid=1820810552)
+<details>
+  <summary>Worksheet "walks" picture</summary>
+  <img src="docs/walks.png" alt="Worksheet walks picture">
+</details>
+<details>
+  <summary>Worksheet "price" picture</summary>
+  <img src="docs/price.png" alt="Worksheet price picture">
+</details>
 
 ## Testing
 ### Following tests were carried out:
@@ -138,7 +143,7 @@ Status: Under investigation.
 
 ### Validator Testing
 - PEP8 https://pep8ci.herokuapp.com/
-  - Validation showed minor errors of whitespces. Theese errors were corrected. No errors left in program.
+  - Validation showed minor errors of whitespces and too long lines. Theese errors were corrected. No errors left in program.
 
 <details>
   <summary>CI Python Linter picture</summary>
@@ -151,25 +156,15 @@ Status: Under investigation.
 ### Libraries used:
 
 - gspread- was used to handle Google Sheets API by Python
-
-[Click to view project worksheet](https://docs.google.com/spreadsheets/d/1-z2f1tkFrZtLMJW0q38bZneJiyy5Eo5amcbG16H9BkQ/edit#gid=1820810552)
-<details>
-  <summary>Worksheet "walks" picture</summary>
-  <img src="docs/walks.png" alt="Worksheet walks picture">
-</details>
-<details>
-  <summary>Worksheet "price" picture</summary>
-  <img src="docs/price.png" alt="Worksheet price picture">
-</details>
-
-
 - pyfiglet- was used to write Dog Walk logo
 - os- was used to be able to clear the terminal
 - time- was used to set a timefunction to clear the terminal.
 - random- was used to be abel to randomize color change in terminal
 - sty- was imported to style text in terminal
--pprint- was used to check functions
-### Software
+-pprint- was used to check 
+
+### Technologies used:
+
 - GitHub
 - Heroku
 - Codeanywhere
@@ -179,6 +174,7 @@ Status: Under investigation.
 - Miro
 
 ## Deployment
+
 ### To deploy project in Heroku
 
 - Create a Heroku account.

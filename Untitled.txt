@@ -26,3 +26,4 @@ def calculate_total_price(data):
         new_price_data.append(total_price)
         print(new_price_data)
 
+print(f'Invalid data. Input needs 4 values, you provided {len(values)}.')

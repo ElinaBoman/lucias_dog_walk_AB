@@ -50,9 +50,10 @@ def validate_data(values):
     try:
         [int(value) for value in values]
         if len(values) != 4:
-            raise ValueError(f'Enter 4 values, you provided{len(values)}')
+            raise ValueError(f'Enter 4 integer values, you provided{len(values)}')
     except ValueError as e:
-        print(f'Invalid data: {e}, please try again.\n')
+        print(f'Invalid data, please try again.\n')
+        print('Please try again.\n')
         return False
 
     return True
