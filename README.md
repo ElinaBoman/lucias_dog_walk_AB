@@ -1,12 +1,10 @@
 # Dog Walk AB
 
-Dog Walk AB is a personalized program for dog walking companies. This program will help user to store information of walks and prices for each dog.
+Dog Walk AB is a personalized program for dog walking companies. This program will help users to store information of walks and prices. 
 
-- Link to deployed project:
-https://dog-walk-ab-b6fc65e542c7.herokuapp.com/
+[Click to view deployed project](https://dog-walk-ab-b6fc65e542c7.herokuapp.com/)
 
-- Link to Google spreadsheet:
-https://docs.google.com/spreadsheets/d/1-z2f1tkFrZtLMJW0q38bZneJiyy5Eo5amcbG16H9BkQ/edit#gid=1820810552
+[Click to view project worksheet](https://docs.google.com/spreadsheets/d/1-z2f1tkFrZtLMJW0q38bZneJiyy5Eo5amcbG16H9BkQ/edit#gid=1820810552)
 
 ![Am I responsive](docs/amiresponsive.png)
 
