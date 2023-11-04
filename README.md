@@ -209,7 +209,7 @@ Status: Under investigation.
 - Go to GitHub repository that you would like to fork. To     
   find the repository, search for the repository URL inside the search bar
 - At the top of the site in the right corner of repository 
-  page there should be a button called "Fork". Click this button.
+  page there should be a button called "Fork". Click this button
 - Choose where you would like to fork the repository
 - GitHub will then create a clone of repository at choosen 
   location. By default you should be directed to forked repository inside your gitHub account
