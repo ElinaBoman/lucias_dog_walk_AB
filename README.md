@@ -10,7 +10,7 @@ Dog Walk AB is a personalized program for dog walking companies. This program wi
 
 ## User Experience 
 
-This program runs inside a mock terminal. This limited the ability to create a creative frontend for the user. To create some user friendly features styling has been added to the text inside the terminal. The text will change color each time the program runs. Darker text will not be used since this would create a bad user experience. Important text content is highlighted with red color. 
+This program runs inside a mock terminal. This limited the ability to create a creative frontend for the user. To create some user friendly features styling has been added to the text inside the terminal. The text will change color each time the program runs. Darker text will not be used since this would create a bad user experience. Important text content is highlighted with red color. The background of the site has a light orange color to give a fun and calming front. The terminal and "RUN PROGRAM! button has been placed in the center of the site. This was to give a nicer overall look of the site. A header element with the text "Dog Walk AB" has been placed in the top of the page. This will immediately inform the user of the name of the program.
 
 A pyfiglet text with Dog Walk AB logo welcomes the user each time the program is started. There were several fonts to choose from for the logo. Ultimately the font that were chosen suited the terminal without taking up to much space or being to distractive.
 
@@ -96,6 +96,9 @@ When the user is ready to leave the program, he/she enters exit in the input. Be
 
 *** 
 ## Data Model
+
+Dog Walk AB was created with templete provided by Code Institue. The code was written with Cross Platform cloud IDE, Codeanywhere.
+
 The walks and price information is stored in a Google spread sheet. The worksheet contains two sheets, "walks" and "price". Inside the "walks" sheet information entered by user is stored. This information is then used to calculate the price, and then store price information inside the "price" sheet.
 When information is imported from the worksheet, it reads as a List by default. To be able to calculate walks and price information the List items are turned into integers instead of strings.
 
@@ -224,6 +227,7 @@ Note, this program uses Heroku to function. This means that deployment can not f
 - My fantastic mentor Brian O'Hare
 - Class mentor David Calikes who helped me getting trough this project
 - Love Sandwiches project
+- Slack community and fellow classmates 
 
 #### ChatGPT
 ChatGPT was used to explain python language. ChatGPT helped with explaining while loop, functions and try-except statements. ChatGPT was used to fix bug that made deleted cells into strings. ChatGPT provided code that helped fix this bug. The code provided will tell the computer to read empty cells as digits. 
