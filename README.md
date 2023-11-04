@@ -204,34 +204,51 @@ Status: Under investigation.
 ## Deployment
 
 ### Fork repository
-- Log in to your GitHub account or create a account if you don't have one
-- Go to GitHub repository that you would like to fork. To find the repository, search for the repository URL inside the search bar
-- At the top of the site in the right corner of repository page there should be a button called "Fork". Click this button.
+- Log in to your GitHub account, or create a account if you 
+  don't have one
+- Go to GitHub repository that you would like to fork. To     
+  find the repository, search for the repository URL inside the search bar
+- At the top of the site in the right corner of repository 
+  page there should be a button called "Fork". Click this button.
 - Choose where you would like to fork the repository
-- GitHub will then create a clone of repository at choosen location. By default you should be directed to forked repository inside your gitHub account
+- GitHub will then create a clone of repository at choosen 
+  location. By default you should be directed to forked repository inside your gitHub account
 
 ### To deploy project in Heroku
 
 - Create a Heroku account
 - Log in to Heroku account
-- In the dashboard choose "Create new app". It's located in the 
+- In the dashboard choose "Create new app". It's located in 
+  the 
   middle of the dashboard
 - Give the new app a name and choose what region you are from
-- When information is entered, find the tabs to Overview, Resources, Deploy, Metrics, Activity, Access and Settings. This should be in the upper right of the site. Click the "Settings" tab
-- Find the Config Vars section and click the "Reveal Config Vars"
-Enter information if there is hidden information in the GitHub repository. In this project a creds.json file was entered. If you don't have any hidden information in GitHub, step over the two following sections
-- Inside Create config vars, enter KEYS and VALUE. Inside KEYS enter CREDS and copy and paste information from creds.json file, into VALUE. Click the "Add" button 
-- Add a new KEY with PORT and VALUE 8000. Click the "Add" button
-- Scroll down to the Buildpacks section. Click the"Add buildpack" button
-- Choose buildpack Python and "Save changes". Add another buildpack with nodjs. Save changes. It is important that the buildpacks are added in the correct order. Drag and drop buildpacks if they are in the wrong order
-- When buildpacks are in order. Locate the "Deploy" tab. It's found on the left side of the "Settings" tab
-- In the Deployment method section, choose GitHub to connect to the repository. Confirm request to connect to GitHub
-- Search for repo-name. This is the name of the repository. Click "Search"
+- When information is entered, find the tabs to Overview, 
+  Resources, Deploy, Metrics, Activity, Access and Settings. This should be in the upper right of the site. Click the "Settings" tab
+- Find the Config Vars section and click the "Reveal Config   
+  Vars" Enter information if there is hidden information in the GitHub repository. In this project a creds.json file was entered. If you don't have any hidden information in GitHub, step over the two following sections
+- Inside Create config vars, enter KEYS and VALUE. Inside 
+  KEYS enter CREDS and copy and paste information from creds.json file, into VALUE. Click the "Add" button 
+- Add a new KEY with PORT and VALUE 8000. Click the "Add" 
+  button
+- Scroll down to the Buildpacks section. Click the"Add 
+  buildpack" button
+- Choose buildpack Python and "Save changes". Add another 
+  buildpack with nodjs. Save changes. It is important that the buildpacks are added in the correct order. Drag and drop buildpacks if they are in the wrong order
+- When buildpacks are in order. Locate the "Deploy" tab. It's 
+  found on the left side of the "Settings" tab
+- In the Deployment method section, choose GitHub to connect 
+  to the repository. Confirm request to connect to GitHub
+- Search for repo-name. This is the name of the repository. 
+  Click "Search"
 - Click "Connect" to link Heroku app to GitHub repository
-- Scroll down to Automatic deploy section and Manual deploy section
-- Choose how the project should be deployed. If Enable Automatic Deploys, Heroku rebuilds the app every time new changes are pushed inside the working enviroment
-- If Manual deploy is chosen the current state of the project will be deployed. For this alternative click "Deploy Branch".
-- When the project is deployed there will be four green circles with checkmarks inside. There should be a message "Your app was successfully deployed.". Click the "View" button to see deployed project. If steps are followed there should be a mock terminal with project inside of it. Program starts automagically
+- Scroll down to Automatic deploy section and Manual deploy 
+  section
+- Choose how the project should be deployed. If Enable 
+  Automatic Deploys, Heroku rebuilds the app every time new changes are pushed inside the working enviroment
+- If Manual deploy is chosen the current state of the project 
+  will be deployed. For this alternative click "Deploy Branch".
+- When the project is deployed there will be four green 
+  circles with checkmarks inside. There should be a message "Your app was successfully deployed.". Click the "View" button to see deployed project. If steps are followed there should be a mock terminal with project inside of it. Program starts automagically
 
 ### To deploy project in GitHub
 Note, this program uses Heroku to function. This means that deployment can not function if only GitHub is used. Follow steps described inside "To deploy project in Heroku". 
@@ -251,6 +268,7 @@ Note, this program uses Heroku to function. This means that deployment can not f
 - Class mentor David Calikes who helped me getting through  
   this project
 - Love Sandwiches project
+- ULTIMATE Battleshis README.md
 - Slack community
 - Fellow classmate Claudia who helped with background
   settings and centering terminal

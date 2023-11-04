@@ -74,7 +74,7 @@ def update_price_data(price_data):
     Updates price worksheet with calculated prices.
     The returned value is the price for each dog and day.
     """
-    print('Updating price worksheet with todays earnings...\n')
+    print('Updating price worksheet with todays combined walks...\n')
     price_worksheet = SHEET.worksheet('price')
     price_worksheet.append_row(price_data)
     print('Price worksheet updated successfully!\n')
